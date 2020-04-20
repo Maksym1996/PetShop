@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<resources>
+   <Resource id="jdbc/petshopDataSource" type="javax.sql.DataSource" name="jdbc/petshopDataSource">
+      jdbcDriver = com.mysql.jdbc.Driver
+      jdbcUrl = jdbc:mysql://localhost:5432/test
+      jtaManaged = true 
+      userName = test
+      password = password
+   </Resource>
+</resources>
