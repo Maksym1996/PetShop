@@ -4,7 +4,7 @@
     <parent>
         <groupId>ua.kharkov.kpi</groupId>
         <artifactId>pet_shop-project</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
     <artifactId>pet_shop-web</artifactId>
     <name>WebContent</name>
@@ -19,7 +19,7 @@
         <dependency>
             <groupId>ua.kharkov.kpi</groupId>
             <artifactId>pet_shop-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.wix</groupId>

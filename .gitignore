@@ -8,7 +8,7 @@
 *.tar.gz
 *.rar
 *.iml
-target/
+target/*
 bin/
 .settings/
 .idea/

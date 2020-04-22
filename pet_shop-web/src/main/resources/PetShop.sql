@@ -63,7 +63,7 @@ create table orders(
 	id integer not null primary key auto_increment,
     user_id integer not null,
     product_id integer not null,
-    count_product integer not null,
+    count_product integer not null default 1,
     foreign key (user_id) references users(id)
     on delete cascade
     on update restrict,
@@ -93,6 +93,7 @@ insert into users values(default, "Philip", "Kirkorov", "Zvezda1", "7080808808",
 insert into users values(default, "Nikola", "Baskov", "ItsIZvezda1", "711111111", "NatureBlondin@yandex.ru", 0);
 insert into users values(default, "Egor", "Krid", "blackIsBack", "712222222", "iaNeVBlackStar@gmail.com",0);
 insert into users values(default, "Sviat", "Vakarchyk", "IaNeZdamsiaBezBoiu", "8069938456", "GazDliaNaselennia@meta.ua", 0);
+insert into users values(default, "user", "user", "user", "12345", "user@user.ua", 0);
 
 
 insert into products values(default, "Yorkshire Terrier Junior", 130, "Здоровая шерсть

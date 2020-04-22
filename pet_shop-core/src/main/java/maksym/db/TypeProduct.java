@@ -1,38 +1,38 @@
 package maksym.db;
+
 /**
  * TypeProd entity
- * @author Maks
  *
+ * @author Maks
  */
 public enum TypeProduct {
-	//ÎÑÍÎÂÍÀß, ÌÅÄÈÖÈÍÑÊÈÅ, ËÀÊÎÌÑÒÂÀ, ÊÎÍÑÅĞÂÈ;
-	MAIN_FOOD(0,"Îñíîâíà ³æà"), 
-	MED_FOOD(1,"Ìåäè÷í³ ïğåïàğàòè"), 
-	GOODIES(2,"Ëàñîù³"), 
-	CANNED_FOOD(3,"Êîíñåğâè");
-	
-	private final int id;
-	private final String name;
-	
-	private TypeProduct(int id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-	
-	public static TypeProduct fromId(int id) {
-		for (TypeProduct type : values()) {
-			if (type.getId() == id) {
-				return type;
-			}
-		}
-		return null;
-	}
-	
-	public int getId() {
-		return id;
-	}
+    MAIN_FOOD(0, "ĞÑĞ½Ğ¾Ğ²Ğ½Ğ° Ñ–Ğ¶Ğ°"),
+    MED_FOOD(1, "ĞœĞµĞ´Ğ¸Ñ‡Ğ½Ñ– Ğ¿Ñ€ĞµĞ¿Ğ°Ñ€Ğ°Ñ‚Ğ¸"),
+    GOODIES(2, "Ğ›Ğ°ÑĞ¾Ñ‰Ñ–"),
+    CANNED_FOOD(3, "ĞšĞ¾Ğ½ÑĞµÑ€Ğ²Ğ¸");
 
-	public String getName() {
-		return name;
-	}
+    private final int id;
+    private final String name;
+
+    private TypeProduct(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public static TypeProduct fromId(int id) {
+        for (TypeProduct type : values()) {
+            if (type.getId() == id) {
+                return type;
+            }
+        }
+        return null;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
