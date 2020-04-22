@@ -27,11 +27,11 @@ public class Profile extends HttpServlet {
             forwardPage = "Profile.html";
         } else {
             User user = (User)session.getAttribute("user");
-            if(user.getRole() == ADMIN){
+           /* if(ADMIN.equals(user.getRole())){
                 forwardPage = "AdminProfile.html";
-            }else{
+            }else*/
                 forwardPage = "UserProfile";
-            }
+
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPage);
         dispatcher.forward(request, response);
@@ -44,17 +44,16 @@ public class Profile extends HttpServlet {
         String pass = request.getParameter("pass");
         User user = DBManager.getInstance().getUserForEmail(email);
         if (user == null) {
-            response.sendRedirect("Profile");
+            response.sendRedirect("Profile.html");
             return;
         }
         if (!Objects.equals(user.getPass(), pass)) {
-            response.sendRedirect("Profile");
+            response.sendRedirect("Profile.html");
             return;
         }
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("UserProfile");
-        dispatcher.forward(request, response);
+        response.sendRedirect("UserProfile");
     }
 
 }
