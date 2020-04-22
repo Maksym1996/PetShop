@@ -30,7 +30,7 @@ public class Profile extends HttpServlet {
             if(user.getRole() == ADMIN){
                 forwardPage = "AdminProfile.html";
             }else{
-                forwardPage = "UserProfile.html";
+                forwardPage = "UserProfile";
             }
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPage);
@@ -53,7 +53,7 @@ public class Profile extends HttpServlet {
         }
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("UserProfile.html");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("UserProfile");
         dispatcher.forward(request, response);
     }
 

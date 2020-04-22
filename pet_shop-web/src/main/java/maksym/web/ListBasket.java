@@ -66,9 +66,9 @@ public class ListBasket extends HttpServlet {
                     + "					</td>");
         }
 
-        result.append("</tr></table>\r\n" +
-                "<form action=\"OurProducts\">\n" +
-                "        <button type=\"submit\">Показати товар</button> </BODY> </HTML>");
+        result.append("</tr></table><br><br><br><br><br>\r\n" +
+                "<form  action=\"SuccessBuy\">\n" +
+                "      <div align=\"center\">  <button type=\"submit\">ЗАМОВИТИ</button></div > </BODY> </HTML>");
         response.getWriter().append(result.toString());
     }
 
