@@ -50,6 +50,7 @@ public class PetShopEmbeddedDBManager {
     }
 
     public void stop() {
+
         if (mysqld == null) {
             return;
         }

@@ -6,7 +6,6 @@ import maksym.db.entity.Order;
 import maksym.db.entity.Product;
 import maksym.db.entity.User;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

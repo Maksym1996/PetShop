@@ -16,7 +16,7 @@ import java.util.Objects;
 import static maksym.db.entity.UserRole.ADMIN;
 
 @WebServlet("/Profile")
-public class Profile extends HttpServlet {
+public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
