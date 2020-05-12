@@ -27,10 +27,12 @@ public class ProfileServlet extends HttpServlet {
             forwardPage = "Profile.html";
         } else {
             User user = (User)session.getAttribute("user");
-           /* if(ADMIN.equals(user.getRole())){
-                forwardPage = "AdminProfile.html";
-            }else*/
-                forwardPage = "UserProfile";
+        
+        if(ADMIN.equals(user.getRole())){
+                forwardPage = "AdminProfile.jsp";
+            }else {
+                forwardPage = "UserProfile.jsp";
+            }
 
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPage);
@@ -53,7 +55,8 @@ public class ProfileServlet extends HttpServlet {
         }
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
-        response.sendRedirect("UserProfile");
+        response.sendRedirect("UserProfile.jsp");
+        
     }
 
 }

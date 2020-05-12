@@ -121,5 +121,24 @@ public class Product {
                 + ", amount=" + amount + ", weight=" + weight + ", producer=" + producer + ", type_id=" + type_id
                 + ", age=" + age + ", breed=" + breed + ", pet_id=" + pet_id + ", photo_link=" + photo_link + "]";
     }
+    
+    public static Product createProduct(String name, int price, String description, int amount, int weight, String producer,
+    			int type_id, String age, String breed, int pet_id, String photo_link) {
+        Product prod = new Product();
+        
+        prod.setName(name);
+        prod.setPrice(price);
+        prod.setDescription(description);
+        prod.setAmount(amount);
+        prod.setProducer(producer);
+        prod.setType_id(type_id);
+        prod.setAge(age);
+        prod.setBreed(breed);
+        prod.setPet_id(pet_id);
+        prod.setPhoto_link(photo_link);
+            
+        return prod;
+
+    }
 
 }

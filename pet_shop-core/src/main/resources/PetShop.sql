@@ -41,10 +41,10 @@ create table type_product(
 create table products (
 	id integer not null primary key auto_increment,
     name varchar(50) not null unique,
-    price integer not null,
+    price integer not null check (price>0),
     description text not null,
-    amount integer not null,
-    weight integer not null,
+    amount integer not null check (price>0),
+    weight integer not null check (price>0),
     producer varchar(30) not null,
     type_id integer not null,
     age varchar(20) default null,

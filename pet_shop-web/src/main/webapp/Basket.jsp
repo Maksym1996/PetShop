@@ -11,8 +11,10 @@
         <title>Моя корзина</title>
     </head>
     <body>
+    
        <jsp:include page="header.jsp" />
-       <div align="left"><font size+=20 ><b>Обраний вами товар:</b></font></div>
+       
+       <div align="left"><font size+=20 ><b>Выбранный вами товар:</b></font></div>
        <table>
             <tr>
                 <c:forEach var="prod" items="${basket.products}">
@@ -29,7 +31,7 @@
         <br><br><br><br><br>
         <form  action="SuccessBuy">
         <div align="center">
-            <button type="submit" id= "circular-button">ЗАМОВИТИ</button>
+            <button type="submit" id= "circular-button">ЗАКАЗАТЬ</button>
         </div>
     </body>
 </html>

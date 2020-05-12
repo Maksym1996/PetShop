@@ -25,17 +25,16 @@ import maksym.db.entity.UserRole;
  */
 public class DBManager {
     private static final String URL_FILENAME = "dbConnect.properties";
-    //	private static final String CONNECTION_URL = DBManager.propURL().getProperty("connection.url");
     private static final String CONNECTION_URL = "jdbc:mysql://localhost:3306/petshop?useUnicode=true&serverTimezone=UTC&user=Maksym&password=pwEzhF258YPjZUG8";
 
     private static final String SQL_INSERT_USER = "INSERT INTO users VALUES(DEFAULT,?,?,?,?,?,?)";
     private static final String SQL_INSERT_ORDER = "INSERT INTO orders VALUES(DEFAULT, ?,?,?)";
+    private static final String SQL_INSERT_PRODUCT = "INSERT INTO products VALUES(DEFAULT, ?,?,?,?,?,?,?,?,?,?,?)";
     private static final String GET_PRODUCT_FOR_ID = "SELECT * FROM products WHERE id = ?";
     private static final String CHECK_USER_FOR_EMAIL_AND_PASS = "SELECT * FROM users WHERE email = ? and pass = ?";
     private static final String GET_PRODUCTS_FOR_PETS = "SELECT * FROM products WHERE pet_id = ?";
-    private static final String UPDATE_PRODUCT_FOR_AMOUNT = "UPDATE product WHERE id = ? SET amount = amount-?";
-    // private static final String GET_NAME_FOR_ID_PET = "SELECT id FROM pets WHERE
-    // name=? ";
+    private static final String UPDATE_PRODUCT_FOR_AMOUNT = "UPDATE products WHERE id = ? SET amount = amount-?";
+    private static final String UPDATE_PRODUCT_FOR_NAME = "UPDATE products WHERE name = ? SET ";
 
     private static final String GET_USER_FOR_EMAIL = "SELECT * FROM users WHERE email = ?";
     private static DBManager instance;
@@ -144,6 +143,8 @@ public class DBManager {
         return res;
 
     }
+    
+    
 
     private static User extrationUser(ResultSet rs) throws SQLException {
         User user = new User();
@@ -206,6 +207,51 @@ public class DBManager {
 
         return order;
     }
+    
+    public boolean insertProduct(Product prod) {
+        boolean res = false;
+        Connection connect = null;
+        PreparedStatement prep = null;
+        ResultSet rs = null;
+
+        try {
+            connect = DriverManager.getConnection(CONNECTION_URL);
+            prep = connect.prepareStatement(SQL_INSERT_PRODUCT, Statement.RETURN_GENERATED_KEYS);
+            int k = 1;
+            prep.setString(k++, prod.getName());
+            prep.setInt(k++, prod.getPrice());
+            prep.setString(k++, prod.getDescription());
+            prep.setInt(k++, prod.getAmount());
+            prep.setInt(k++, prod.getWeight());
+            prep.setString(k++, prod.getProducer()); 
+            prep.setInt(k++, prod.getType_id());
+            prep.setString(k++, prod.getAge()); 
+            prep.setString(k++, prod.getBreed());
+            prep.setInt(k++, prod.getPet_id());
+            prep.setString(k, prod.getPhoto_link());
+           
+
+            if (prep.executeUpdate() > 0) {
+                rs = prep.getGeneratedKeys();
+                res = true;
+                if (rs.next()) {
+                    int prodID = rs.getInt(1);
+                    prod.setId(prodID);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(connect);
+
+        }
+
+        return res;
+
+    }
+    
+
 
     public Product getProductForId(int id) {
         Product prod = null;

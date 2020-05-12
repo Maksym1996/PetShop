@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Servlet implementation class Basket
  */
-@WebServlet("/Basket")
+@WebServlet(value = "/back", name= "/Basket")
 public class BackToProductsServlet extends HttpServlet {
 
     /**
@@ -38,7 +38,7 @@ public class BackToProductsServlet extends HttpServlet {
         }
         List<Product> products = basket.getProducts();
         products.add(prod);
-        response.sendRedirect("OurProducts?pet=" + prod.getPet_id());
+        response.sendRedirect("Catalog?pet=" + prod.getPet_id());
     }
 
     /**

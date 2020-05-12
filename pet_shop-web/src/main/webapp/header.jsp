@@ -10,7 +10,7 @@
 </div>
 
 <div id = "right-head" class = "shadow">
-    <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/%D0%9F%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C.png" height="20"  width="5%"><a href="ProfileServlet">Профиль</a>&nbsp
+    <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/%D0%9F%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C.png" height="20"  width="5%"><a href="Profile">Профиль</a>&nbsp
     <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B.png" height="20" width="5%"><a href="Contacts.html">Контакты</a>&nbsp
     <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/%D0%9A%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0.png" height="20"  width="5%"><a href="basket">Корзина</a>
     <br><br>
@@ -46,3 +46,6 @@
 
             </div>
         </div>
+<div class = "bottom-head">
+    <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/%D0%96%D0%B5%D0%BB%D1%82%D0%B0%D1%8F%20%D0%BB%D0%B8%D0%BD%D0%B8%D1%8F.PNG" height="10" width="100%">
+ </div>

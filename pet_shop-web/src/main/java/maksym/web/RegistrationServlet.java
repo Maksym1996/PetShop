@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/Registration")
-public class Registration extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,7 +36,7 @@ public class Registration extends HttpServlet {
         DBManager.getInstance().insertUser(user);
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
-        response.sendRedirect("MainPage.html");
+        response.sendRedirect("MainPage.jsp");
     }
 
 }
