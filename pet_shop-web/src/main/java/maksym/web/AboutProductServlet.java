@@ -29,16 +29,7 @@ public class AboutProductServlet extends HttpServlet {
         int prodID = Integer.parseInt(request.getParameter("id"));
 
         Product prod = DBManager.getInstance().getProductForId(prodID);    
-        TypeProduct typeProduct = TypeProduct.fromId(prod.getType_id());
-        
-        String type;
-        if (typeProduct != null) {
-            type = typeProduct.getName();
-        } else {
-            type = "-";
-        }
-
-        String breed;
+             String breed;
         if (prod.getBreed() != null) {
             breed = prod.getBreed();
         } else {
@@ -46,8 +37,7 @@ public class AboutProductServlet extends HttpServlet {
         }
         
         request.setAttribute("prod", prod);
-        request.setAttribute("type", type);
-        request.setAttribute("breed", breed);
+         request.setAttribute("breed", breed);
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("AboutProduct.jsp");
         dispatcher.forward(request, response);

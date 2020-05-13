@@ -1,0 +1,9 @@
+maksym\db\DBManager.class
+maksym\db\entity\Basket.class
+maksym\db\entity\Order.class
+maksym\db\entity\Product.class
+maksym\db\PetShopEmbeddedDBManager.class
+maksym\photo\PhotoLinks.class
+maksym\db\entity\User.class
+maksym\db\TypeProduct.class
+maksym\db\entity\UserRole.class

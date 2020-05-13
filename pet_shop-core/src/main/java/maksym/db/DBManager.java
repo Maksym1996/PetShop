@@ -219,15 +219,15 @@ public class DBManager {
             prep = connect.prepareStatement(SQL_INSERT_PRODUCT, Statement.RETURN_GENERATED_KEYS);
             int k = 1;
             prep.setString(k++, prod.getName());
-            prep.setInt(k++, prod.getPrice());
+            prep.setString(k++, prod.getPrice());
             prep.setString(k++, prod.getDescription());
-            prep.setInt(k++, prod.getAmount());
-            prep.setInt(k++, prod.getWeight());
+            prep.setString(k++, prod.getAmount());
+            prep.setString(k++, prod.getWeight());
             prep.setString(k++, prod.getProducer()); 
-            prep.setInt(k++, prod.getType_id());
+            prep.setString(k++, prod.getType_id());
             prep.setString(k++, prod.getAge()); 
             prep.setString(k++, prod.getBreed());
-            prep.setInt(k++, prod.getPet_id());
+            prep.setString(k++, prod.getPet_id());
             prep.setString(k, prod.getPhoto_link());
            
 
@@ -309,15 +309,15 @@ public class DBManager {
 
         prod.setId(rs.getInt(k++));
         prod.setName(rs.getString(k++));
-        prod.setPrice(rs.getInt(k++));
+        prod.setPrice(rs.getString(k++));
         prod.setDescription(rs.getString(k++));
-        prod.setAmount(rs.getInt(k++));
-        prod.setWeight(rs.getInt(k++));
+        prod.setAmount(rs.getString(k++));
+        prod.setWeight(rs.getString(k++));
         prod.setProducer(rs.getString(k++));
-        prod.setType_id(rs.getInt(k++));
+        prod.setType_id(rs.getString(k++));
         prod.setAge(rs.getString(k++));
         prod.setBreed(rs.getString(k++));
-        prod.setPet_id(rs.getInt(k++));
+        prod.setPet_id(rs.getString(k++));
         prod.setPhoto_link(rs.getString(k));
 
         return prod;

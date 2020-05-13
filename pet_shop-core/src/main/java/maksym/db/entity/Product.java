@@ -8,15 +8,15 @@ package maksym.db.entity;
 public class Product {
     private int id;
     private String name;
-    private int price;
+    private String price;
     private String description;
-    private int amount;
-    private int weight;
+    private String amount;
+    private String weight;
     private String producer;
-    private int type_id;
+    private String type_id;
     private String age;
     private String breed;
-    private int pet_id;
+    private String pet_id;
     private String photo_link;
 
     public int getId() {
@@ -35,11 +35,11 @@ public class Product {
         this.name = name;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -51,19 +51,19 @@ public class Product {
         this.description = description;
     }
 
-    public int getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
-    public int getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
@@ -75,11 +75,11 @@ public class Product {
         this.producer = producer;
     }
 
-    public int getType_id() {
+    public String getType_id() {
         return type_id;
     }
 
-    public void setType_id(int type_id) {
+    public void setType_id(String type_id) {
         this.type_id = type_id;
     }
 
@@ -99,11 +99,11 @@ public class Product {
         this.breed = breed;
     }
 
-    public int getPet_id() {
+    public String getPet_id() {
         return pet_id;
     }
 
-    public void setPet_id(int pet_id) {
+    public void setPet_id(String pet_id) {
         this.pet_id = pet_id;
     }
 
@@ -122,14 +122,15 @@ public class Product {
                 + ", age=" + age + ", breed=" + breed + ", pet_id=" + pet_id + ", photo_link=" + photo_link + "]";
     }
     
-    public static Product createProduct(String name, int price, String description, int amount, int weight, String producer,
-    			int type_id, String age, String breed, int pet_id, String photo_link) {
+    public static Product createProduct(String name, String price, String description, String amount, String weight, String producer,
+                                        String type_id, String age, String breed, String pet_id, String photo_link) {
         Product prod = new Product();
         
         prod.setName(name);
         prod.setPrice(price);
         prod.setDescription(description);
         prod.setAmount(amount);
+        prod.setWeight(weight);
         prod.setProducer(producer);
         prod.setType_id(type_id);
         prod.setAge(age);
