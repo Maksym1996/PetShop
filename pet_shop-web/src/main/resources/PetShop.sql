@@ -35,7 +35,11 @@ create table pets(
 
 create table type_product(
 	id integer not null primary key,
-    name varchar(20) not null unique
+    name varchar(20) not null unique,
+    pet_id integer not null,
+    foreing key(pet_id) references pets(id)
+    on delete cascade
+    on update restrict
 );
 
 create table products (
@@ -82,10 +86,26 @@ insert into pets values(2, "rodent");
 insert into pets values(3, "fish");
 insert into pets values(4, "bird");
 
-insert into type_product values(0, "main food");
-insert into type_product values(1, "medicinal feed");
-insert into type_product values(2, "goodies");
-insert into type_product values(3, "canned food");
+insert into type_product values(0, "main food", 0);
+insert into type_product values(1, "medicinal feed", 0);
+insert into type_product values(2, "goodies", 0);
+insert into type_product values(3, "canned food", 0);
+insert into type_product values(4, "main food", 1);
+insert into type_product values(5, "medicinal feed", 1);
+insert into type_product values(6, "goodies", 1);
+insert into type_product values(7, "canned food", 1);
+insert into type_product values(8, "main food", 2);
+insert into type_product values(9, "medicinal feed", 2);
+insert into type_product values(10, "goodies", 2);
+insert into type_product values(11, "canned food", 2);
+insert into type_product values(12, "main food", 3);
+insert into type_product values(13, "medicinal feed", 3);
+insert into type_product values(14, "goodies", 3);
+insert into type_product values(15, "canned food", 3);
+insert into type_product values(16, "main food", 4);
+insert into type_product values(17, "medicinal feed", 4);
+insert into type_product values(18, "goodies", 4);
+insert into type_product values(19, "canned food", 4);
 
 insert into users values(default, "Maksim", "Kordonets", "qwerty", "0969055386", "kordonetsmax@gmail.com",1 );
 insert into users values(default, "Valera", "Prigozhin", "12345", "0689978788", "valera@gmail.com", 0);
@@ -110,7 +130,7 @@ insert into products values(default, "Plan Puppy Small", 163, "Помогает 
 Первый год жизни вашей собаки имеет решающее значение для ее здоровья в дальнейшем. Чтобы помочь укрепить естественную защиту щенков в начале жизни, ветеринары и диетологи Purina разработали корм Purina PRO PLAN Puppy с комплексом OPTISTART. Комплекс OPTISTART, в состав которого входит особый ингредиент молозиво — первичное молоко матери, богатое природными антителами, помогает укрепить естественную защиту щенков для борьбы с ежедневными проблемами.",
 10, 500, "Purina", 0, "для щенят", "Індивідуально для породи", 0, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS6v5YjIzeLZyHKtj4XBSUn8n35tpF4nHkJAvxOHNDjiVWvF1PKUPHijQ9oFCc&usqp=CAc");
 insert into products values(default, "Whiskas", 100, "З яловичиною, повнораціонний сухий корм для дорослих котів", 
-20, 300, "whiskas", 0, "від 1 року", "для всіх", 1, "https://my-test-11.slatic.net/p/1d4fd3cf36fcc033461fe5fbb5b4d7a1.jpg_340x340q80.jpg_.webp");
+20, 300, "whiskas", , "від 1 року", "для всіх", 1, "https://my-test-11.slatic.net/p/1d4fd3cf36fcc033461fe5fbb5b4d7a1.jpg_340x340q80.jpg_.webp");
 insert into products values(default, "Vitakraft Menu Vital", 77, "Основной сбалансированный корм для ежедневного питания кроликов. Обеспечивает грызунов всеми необходимыми витаминами и минералами, а также отвечает их природному рациону в естественной среде обитания.",
 30, 500, "Vitakraft", 0, "для будь-якого віку", default, 2, "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS-DvnL70TmdvaLBh7tz6_GugT7KNNbd643Cd6TxgAcu_xFdx7y&usqp=CAU");
 insert into products values(default, "Природа Колосок", 21, "Витаминизированное лакомство в виде подвесной палочки с фруктами и овощами для волнистых попугаев. Дополняет диету домашних питомцев, значительно обогащая их обычный рацион в условиях содержания в неволе.",

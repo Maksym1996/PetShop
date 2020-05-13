@@ -34,8 +34,7 @@ public class DBManager {
     private static final String CHECK_USER_FOR_EMAIL_AND_PASS = "SELECT * FROM users WHERE email = ? and pass = ?";
     private static final String GET_PRODUCTS_FOR_PETS = "SELECT * FROM products WHERE pet_id = ?";
     private static final String UPDATE_PRODUCT_FOR_AMOUNT = "UPDATE products WHERE id = ? SET amount = amount-?";
-    private static final String UPDATE_PRODUCT_FOR_NAME = "UPDATE products WHERE name = ? SET ";
-
+    private static final String UPDATE_PRODUCT = "UPDATE products WHERE id = ? SET name=?, price=?, description=?, amount=?, weight=?, producer=?, type_id=?, age=?, breed=?, pet_id=?, photo_link=?";
     private static final String GET_USER_FOR_EMAIL = "SELECT * FROM users WHERE email = ?";
     private static DBManager instance;
 
@@ -301,6 +300,43 @@ public class DBManager {
 
         return allProd;
 
+    }
+    
+    public boolean updateProduct(int id, String name, String price, String description, String amount, String weight, String producer,
+            String type_id, String age, String breed, String pet_id, String photo_link) {
+    	boolean result = false;
+    	Connection connect = null;
+        PreparedStatement prep = null;
+        
+        try {
+        	connect = DriverManager.getConnection(CONNECTION_URL);
+        	prep = connect.prepareStatement(UPDATE_PRODUCT);
+        	int k = 1;
+        	prep.setInt(k++, id);
+        	prep.setString(k++, name);
+        	prep.setString(k++, price);
+        	prep.setString(k++, description);
+        	prep.setString(k++, amount);
+        	prep.setString(k++, weight);
+        	prep.setString(k++, producer);
+        	prep.setString(k++, type_id);
+        	prep.setString(k++, age);
+        	prep.setString(k++, breed);
+        	prep.setString(k++, pet_id);
+        	prep.setString(k, photo_link);
+        	
+        	if(prep.executeUpdate()>0){
+                result = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(connect);
+        }
+        return result;
+        	
+        	
+        
     }
 
     private static Product extractionProduct(ResultSet rs) throws SQLException {

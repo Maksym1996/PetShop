@@ -36,14 +36,17 @@
     </div>
 
 
-        <div id = "items">
-            <div class = "item" >
-                <a href="Catalog?pet=0">Собакам</a>&nbsp;
-                <a href="Catalog?pet=1">Кошкам</a>&nbsp;
-                <a href="Catalog?pet=2">Грызунам</a>&nbsp;
-                <a href="Catalog?pet=3">Рыбам</a>&nbsp;
-                <a href="Catalog?pet=4">Птицам</a>
-
-            </div>
-        </div>
+          
+        <nav>
+        	<ul>
+        		<li><a href="Catalog?pet=0">Собакам</a>&nbsp;</li>
+        			<ul>
+        				<li></li>
+        			</ul>
+        		<li><a href="Catalog?pet=1">Кошкам</a>&nbsp;</li>
+        		<li><a href="Catalog?pet=2">Грызунам</a>&nbsp;</li>
+        		<li><a href="Catalog?pet=3">Рыбам</a>&nbsp;</li>
+        		<li> <a href="Catalog?pet=4">Птицам</a></li>
+           	</ul>
+        </nav>
 
