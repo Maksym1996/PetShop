@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8"%>
+<%@ page contentType="text/html;charset=utf-8" import = "maksym.db.entity.UserRole" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
@@ -17,14 +17,14 @@
 	<div align="center">
 		<font size+=10><b> Каталог товаров</b></font>
 	</div>
+	          <c:if test = "${not empty role and role eq UserRole.ADMIN}">
+    					<form action="AddProduct">
+    						<button type="submit" id="circular-button">Добавить товар</button>
+    					</form>
+    		  </c:if>
 	<table>
 		<tr>
-			<td><c:if test="${role == ADMIN}">
-					<form action="AddProduct">
-						<button type="submit" id="circular-button">Добавить товар</button>
-					</form>
-
-				</c:if> <c:forEach var="prod" items="${products}">
+			<td><c:forEach var="prod" items="${products}">
 
 					<figure class="sign">
 						<img src=<c:out value="${prod.photo_link}"/> height="150"
@@ -46,10 +46,12 @@
 						<button type="submit" id="circular-button">Сведения о
 							товаре</button>
 					</form>
-					<form action="EditProduct" method="GET">
+					<c:if test = "${not empty role and role eq UserRole.ADMIN}">
+					    <form action="EditProduct" method="GET">
 						<input type="hidden" name="id" value=<c:out value = "${prod.id}"/>>
 						<button type="submit" id="circular-button">Изменить товар</button>
 					</form>
+					</c:if>
 					</p>
 
 				</c:forEach></td>

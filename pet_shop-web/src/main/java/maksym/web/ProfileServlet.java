@@ -49,6 +49,7 @@ public class ProfileServlet extends HttpServlet {
             response.sendRedirect("Profile.html");
             return;
         }
+
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
         response.sendRedirect("UserProfile.jsp");

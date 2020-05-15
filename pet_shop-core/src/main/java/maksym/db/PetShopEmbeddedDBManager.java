@@ -32,6 +32,7 @@ public class PetShopEmbeddedDBManager {
     public void start() {
         MysqldConfig config = MysqldConfig.aMysqldConfig(Version.v5_7_10)
                 .withPort(3306)
+                .withTempDir("../temp")
                 .withUser(USER_NAME, PASSWORD)
                 .build();
         mysqld = EmbeddedMysql.anEmbeddedMysql(config)

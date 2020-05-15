@@ -9,6 +9,7 @@
 *.rar
 *.iml
 */target/**
+temp/**
 bin/
 .settings/
 .idea/
