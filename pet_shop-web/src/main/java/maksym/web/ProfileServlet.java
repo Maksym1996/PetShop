@@ -52,6 +52,7 @@ public class ProfileServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
+        session.setAttribute("role", user.getRole());
         response.sendRedirect("UserProfile.jsp");
         
     }

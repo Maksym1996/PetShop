@@ -6,7 +6,7 @@
     <a href=""><img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/Flag_UK.jpg" height="20"  width="10%"></a>
     <br>
     <br>
-    <a href="/"><img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/%D0%97%D0%BD%D0%B0%D1%87%D0%BE%D0%BA.PNG" width="130%"></a>
+    <a href="/pet_shop-web/"><img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/%D0%97%D0%BD%D0%B0%D1%87%D0%BE%D0%BA.PNG" width="130%"></a>
 </div>
 
 <div id = "right-head" class = "shadow">
@@ -32,21 +32,56 @@
 </div>
 
 <div class = "bottom-head">
-    <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/%D0%96%D0%B5%D0%BB%D1%82%D0%B0%D1%8F%20%D0%BB%D0%B8%D0%BD%D0%B8%D1%8F.PNG" height="10" width="100%">
+    <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/OrangeLine.PNG" height="15" width="100%">
+</div>
+
+
+
+<nav>
+    <ul>
+        <li><a href="Catalog?pet=0">Собакам</a>
+            <ul>
+                <li><a href="Catalog?pet=0&type_product=0">Основные продукты</a></li>
+                <li><a href="Catalog?pet=0&type_product=1">Товары для здоровья</a></li>
+                <li><a href="Catalog?pet=0&type_product=2">Вкусняшки</a></li>
+                <li><a href="Catalog?pet=0&type_product=3">Консервы</a></li>
+            </ul>
+        </li>
+        <li><a href="Catalog?pet=1">Кошкам</a>
+            <ul>
+                <li><a href="Catalog?pet=1&type_product=0">Основные продукты</a></li>
+                <li><a href="Catalog?pet=1&type_product=1">Товары для здоровья</a></li>
+                <li><a href="Catalog?pet=1&type_product=2">Вкусняшки</a></li>
+                <li><a href="Catalog?pet=1&type_product=3">Консервы</a></li>
+            </ul>
+        </li>
+        <li><a href="Catalog?pet=2">Грызунам</a>
+            <ul>
+                 <li><a href="Catalog?pet=2&type_product=0" >Основные продукты</a></li>
+                 <li><a href="Catalog?pet=2&type_product=1">Товары для здоровья</a></li>
+                 <li><a href="Catalog?pet=2&type_product=2">Вкусняшки</a></li>
+                 <li><a href="Catalog?pet=2&type_product=3">Консервы</a></li>
+            </ul>
+        </li>
+        <li><a href="Catalog?pet=3">Рыбам</a>
+             <ul>
+                 <li><a href="Catalog?pet=3&type_product=0">Основные продукты</a></li>
+                    <li><a href="Catalog?pet=3&type_product=1">Товары для здоровья</a></li>
+                    <li><a href="Catalog?pet=3&type_product=2">Вкусняшки</a></li>
+                    <li><a href="Catalog?pet=3&type_product=3">Консервы</a></li>
+             </ul>
+        </li>
+        <li> <a href="Catalog?pet=4">Птицам</a>
+            <ul>
+                <li><a href="Catalog?pet=4&type_product=0">Основные продукты</a></li>
+                <li><a href="Catalog?pet=4&type_product=1">Товары для здоровья</a></li>
+                <li><a href="Catalog?pet=4&type_product=2">Вкусняшки</a></li>
+                <li><a href="Catalog?pet=4&type_product=3">Консервы</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+  <div class = "bottom-head">
+    <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/OrangeLine.PNG" height="15" width="100%">
     </div>
-
-
-          
-        <nav>
-        	<ul>
-        		<li><a href="Catalog?pet=0">Собакам</a>&nbsp;</li>
-        			<ul>
-        				<li></li>
-        			</ul>
-        		<li><a href="Catalog?pet=1">Кошкам</a>&nbsp;</li>
-        		<li><a href="Catalog?pet=2">Грызунам</a>&nbsp;</li>
-        		<li><a href="Catalog?pet=3">Рыбам</a>&nbsp;</li>
-        		<li> <a href="Catalog?pet=4">Птицам</a></li>
-           	</ul>
-        </nav>
 

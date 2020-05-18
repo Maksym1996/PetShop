@@ -13,10 +13,10 @@ public class Product {
     private String amount;
     private String weight;
     private String producer;
-    private String type_id;
+    private int type_id;
     private String age;
     private String breed;
-    private String pet_id;
+    private int pet_id;
     private String photo_link;
 
     public int getId() {
@@ -75,11 +75,11 @@ public class Product {
         this.producer = producer;
     }
 
-    public String getType_id() {
+    public int getType_id() {
         return type_id;
     }
 
-    public void setType_id(String type_id) {
+    public void setType_id(int type_id) {
         this.type_id = type_id;
     }
 
@@ -99,11 +99,11 @@ public class Product {
         this.breed = breed;
     }
 
-    public String getPet_id() {
+    public int getPet_id() {
         return pet_id;
     }
 
-    public void setPet_id(String pet_id) {
+    public void setPet_id(int pet_id) {
         this.pet_id = pet_id;
     }
 
@@ -123,7 +123,7 @@ public class Product {
     }
     
     public static Product createProduct(String name, String price, String description, String amount, String weight, String producer,
-                                        String type_id, String age, String breed, String pet_id, String photo_link) {
+                                        int type_id, String age, String breed, int pet_id, String photo_link) {
         Product prod = new Product();
         
         prod.setName(name);

@@ -14,30 +14,32 @@
 <body>
 
 	<jsp:include page="header.jsp" />
+<p><c:out value="${type}"/></p>
+<p><c:out value="${pet}"/></p>
 	<div align="center">
 		<font size+=10><b> Каталог товаров</b></font>
 	</div>
-	          <c:if test = "${not empty role and role eq UserRole.ADMIN}">
+	          <c:if test = "${role == 1 and not empty role}">
     					<form action="AddProduct">
     						<button type="submit" id="circular-button">Добавить товар</button>
     					</form>
     		  </c:if>
 	<table>
 		<tr>
-			<td><c:forEach var="prod" items="${products}">
-
+		  <c:forEach var="prod" items="${products}">
+            <td>
 					<figure class="sign">
 						<img src=<c:out value="${prod.photo_link}"/> height="150"
 							width="150">
 					</figure>
 					<br>
-					<p>
+
 						<c:out value="${prod.name}" />
 						,
 						<c:out value="${prod.weight}" />
 						gr.
-					</p>
-					<p>
+
+					<br>
 					<form action="AboutProduct" method="GET">
 						<input type="hidden" name="id" value=<c:out value = "${prod.id}"/>>
 						<font size=+2 color=green> <c:out value="${prod.price}" />
@@ -46,15 +48,16 @@
 						<button type="submit" id="circular-button">Сведения о
 							товаре</button>
 					</form>
-					<c:if test = "${not empty role and role eq UserRole.ADMIN}">
+					<c:if test = "${not empty role and role eq 1}">
 					    <form action="EditProduct" method="GET">
 						<input type="hidden" name="id" value=<c:out value = "${prod.id}"/>>
 						<button type="submit" id="circular-button">Изменить товар</button>
 					</form>
 					</c:if>
-					</p>
 
-				</c:forEach></td>
+                </td>
+			</c:forEach>
+
 		</tr>
 	</table>
 

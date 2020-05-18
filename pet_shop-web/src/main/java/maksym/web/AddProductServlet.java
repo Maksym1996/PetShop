@@ -33,10 +33,10 @@ public class AddProductServlet extends HttpServlet {
         String amount = request.getParameter("amount");
         String weight = request.getParameter("weight");
         String producer = request.getParameter("producer");
-        String type_id = request.getParameter("type_id");
+        int type_id = Integer.parseInt(request.getParameter("type_id"));
         String age = request.getParameter("age");
         String breed = request.getParameter("breed");
-        String pet_id = request.getParameter("pet_id");
+        int pet_id = Integer.parseInt(request.getParameter("pet_id"));
         String photo_link = request.getParameter("photo_link");
 
         Product prod = Product.createProduct(name, price, description, amount, weight, producer,

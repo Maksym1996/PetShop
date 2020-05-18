@@ -13,7 +13,7 @@
 	<body>
 		
 		  <jsp:include page="header.jsp" />
-		  <h1 align="center"> prod.getName() </h1>
+		  <h1 align="center"> <c:out value = "${prod.name}"/> </h1>
 		  <table border=0>
 		  	<tr>
 		  		<td>
@@ -47,7 +47,7 @@
 		  			</table>
 		  			<br>
 		  			<form action="back" method = "GET" >
-		  				<input type = "hidden" name = "id" value = prod.getId() >
+		  				<input type = "hidden" name = "id" value = <c:out value = "${prod.id}"/> >
 		  				<button type="submit" id = "circular-button">Добавить в корзину</button>
 		  		</td>
 		  	</tr>
@@ -55,8 +55,8 @@
 		  <br>
 		  <br>
 		  <br>
-		  <h3 align="left">РћРїРёСЃР°РЅРЅСЏ С‚РѕРІР°СЂСѓ</h3>
-		  <p> prod.getDescription()</p> 
+		  <h3 align="left">Описание товара</h3>
+		  <p> <c:out value = "${prod.description}"/></p>
 
 </body>
 </html>

@@ -6,6 +6,7 @@ input:invalid {
 div{
 	font-family:'Courier New';
 	color: black;
+
 }
 
 /*Start link style*/
@@ -145,9 +146,9 @@ a:hover {
 /* End Pagination */
 
 /* Start Circular Button */
-#c-b {display: inline; position: absolute; margin: 0; width: 80px; height: 32px; top: 154px; left: 0px;}
+#c-b {display: inline; margin: 0; width: 80px; height: 32px; top: 154px; left: 0px;}
 
-#circular-button {font-family: "Courier New", Helvetica, Arial, sans-serif; margin: 0; position: relative; display: block; color: orange; text-shadow: 0px 1px 0px rgba(255,255,255,0.59); padding: 6px 20px 7px 20px; outline: none; background: #fff; border: 1px solid #d8d8d8; border-bottom: 1px solid #ccc; border-radius: 30px; cursor: pointer; overflow: visible; -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.57); -moz-box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.57); -o-box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.57); box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.57);}
+#circular-button {font-family: "Courier New", Helvetica, Arial, sans-serif; margin: 0;  display: block; color: orange; text-shadow: 0px 1px 0px rgba(255,255,255,0.59); padding: 6px 20px 7px 20px; outline: none; background: #fff; border: 1px solid #d8d8d8; border-bottom: 1px solid #ccc; border-radius: 30px; cursor: pointer; overflow: visible; -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.57); -moz-box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.57); -o-box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.57); box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.57);}
 
 #circular-button:hover {color: #888; text-shadow: 0px 1px 0px rgba(255,255,255,0.69); -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.75); -moz-box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.75); -o-box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.75); box-shadow: 0px 2px 2px rgba(0,0,0,0.027), inset 0px 1px 0px rgba(255,255,255,0.69), inset 0px -1px 0px rgba(0,0,0,0.0187), inset 0px 15px 14px rgba(255,255,255,0.75);}
 
@@ -158,7 +159,13 @@ a:hover {
 /* задаем цвет фона для контейнера nav. */
 			nav {
 			    margin: 100px 0;
-			    background-color: #E64A19;
+			    background-color: orange;
+                font-family:'Courier New';
+
+                font-weight: bold;
+                text-shadow: -5px -4px 3px #999;
+                font-size: 50px;
+
 			}
 			
 			/* убираем отступы и поля, а также list-style для "ul", 
@@ -168,13 +175,16 @@ a:hover {
 			    margin:0;
 			    list-style: none;
 			    position: relative;
+			    margin-left: 20%;
+
 			    }
 			
 			/* применяем inline-block позиционирование к элементам навигации */
 			nav ul li {
 			    margin: 0px -7px 0 0;
 			    display:inline-block;
-			    background-color: #E64A19;
+			    background-color: orange;
+
 			    }
 			
 			/* стилизуем ссылки */
@@ -182,9 +192,11 @@ a:hover {
 			    display:block;
 			    padding:0 10px;
 			    color:#FFF;
-			    font-size:20px;
+			    font-size:50px;
 			    line-height: 60px;
 			    text-decoration:none;
+
+
 			}
 			
 			/* изменяем цвет фона при наведении курсора */
@@ -200,6 +212,7 @@ a:hover {
 			/* отображаем выпадающий список при наведении */
 			nav ul li:hover > ul {
 			    display:inherit;
+
 			}
 			
 			/* первый уровень выпадающего списка */
@@ -208,17 +221,11 @@ a:hover {
 			    float:none;
 			    display:list-item;
 			    position: relative;
+
+                 left: -53%;
 			}
-			/* второй, третий и последующие уровни 
-			 * смещаем 2 и 3 уровни влево 
-			 * на значение длины первого уровня.
-			*/
-			nav ul ul ul {
-			    position: absolute;
-			    top:0;
-			    left:100%;
-		}
+
 		/* изменить ' +' на любой другой символ, если нужно
 	*/
-			li > a:after { content:  ' ->'; }
+			li > a:after { content:  ''; }
 		li > a:only-child:after { content: ''; }

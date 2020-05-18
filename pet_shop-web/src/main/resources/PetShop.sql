@@ -35,10 +35,8 @@ create table pets(
 
 create table type_product(
 	id integer not null primary key,
-    name varchar(20) not null,
-    pet_id integer not null
-
-);
+    name varchar(20) not null
+ );
 
 create table products (
 	id integer not null primary key auto_increment,
@@ -84,26 +82,11 @@ insert into pets values(2, "rodent");
 insert into pets values(3, "fish");
 insert into pets values(4, "bird");
 
-insert into type_product values(0, "main food", 0);
-insert into type_product values(1, "medicinal feed", 0);
-insert into type_product values(2, "goodies", 0);
-insert into type_product values(3, "canned food", 0);
-insert into type_product values(4, "main food", 1);
-insert into type_product values(5, "medicinal feed", 1);
-insert into type_product values(6, "goodies", 1);
-insert into type_product values(7, "canned food", 1);
-insert into type_product values(8, "main food", 2);
-insert into type_product values(9, "medicinal feed", 2);
-insert into type_product values(10, "goodies", 2);
-insert into type_product values(11, "canned food", 2);
-insert into type_product values(12, "main food", 3);
-insert into type_product values(13, "medicinal feed", 3);
-insert into type_product values(14, "goodies", 3);
-insert into type_product values(15, "canned food", 3);
-insert into type_product values(16, "main food", 4);
-insert into type_product values(17, "medicinal feed", 4);
-insert into type_product values(18, "goodies", 4);
-insert into type_product values(19, "canned food", 4);
+insert into type_product values(0, "main food");
+insert into type_product values(1, "medicinal feed");
+insert into type_product values(2, "goodies");
+insert into type_product values(3, "canned food");
+
 
 insert into users values(default, "Maksim", "Kordonets", "qwerty", "0969055386", "kordonetsmax@gmail.com",1 );
 insert into users values(default, "Valera", "Prigozhin", "12345", "0689978788", "valera@gmail.com", 0);

@@ -11,7 +11,7 @@ public class User {
     private String name;
     private String surname;
     private String pass;
-    private UserRole role;
+    private int role;
     private String phone;
     private String email;
 
@@ -63,11 +63,11 @@ public class User {
         this.email = email;
     }
 
-    public UserRole getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(UserRole role) {
+    public void setRole(int role) {
         this.role = role;
     }
 
@@ -84,7 +84,7 @@ public class User {
                 '}';
     }
 
-    public static User createUser(String n, String sur, String phone, String mail, String pass, UserRole role) {
+    public static User createUser(String n, String sur, String phone, String mail, String pass, int role) {
         User user = new User();
         user.setName(n);
         user.setSurname(sur);

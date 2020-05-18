@@ -16,6 +16,7 @@ import maksym.db.TypeProduct;
 import maksym.db.entity.Product;
 import maksym.db.entity.User;
 import maksym.photo.PhotoLinks;
+import org.apache.commons.lang3.StringUtils;
 
 
 /**
@@ -28,18 +29,31 @@ public class CatalogServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html; charset=UTF-8");
-        int pet = Integer.parseInt(request.getParameter("pet"));
-        List<Product> prod = new ArrayList<>();
 
-        prod = DBManager.getInstance().getProductsForPetId(pet);
-        request.setAttribute("products", prod);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("Catalog.jsp");
-        dispatcher.forward(request, response);
-        
-   
-        
-        
+        String petString = request.getParameter("pet");
+        String typeString = request.getParameter("type_product");
+        /*if (StringUtils.isBlank(petString)) {
+            // TODO: 16.05.2020 redirect to error page
+            return;
+        }*/
+
+        int pet = Integer.parseInt(petString);
+        List<Product> prod;
+       if (StringUtils.isNotBlank(typeString)) {
+           int type = Integer.parseInt(typeString);
+           prod = DBManager.getInstance().getProductsForTypeAndPetId(pet, type);
+           request.setAttribute("products", prod);
+           RequestDispatcher dispatcher = request.getRequestDispatcher("Catalog.jsp");
+           dispatcher.forward(request, response);
+
+
+        } else {
+           prod = DBManager.getInstance().getProductsForPetId(pet);
+           request.setAttribute("products", prod);
+           RequestDispatcher dispatcher = request.getRequestDispatcher("Catalog.jsp");
+           dispatcher.forward(request, response);
+        }
+
     }
 
     /**

@@ -33,9 +33,11 @@ public class DBManager {
     private static final String GET_PRODUCT_FOR_ID = "SELECT * FROM products WHERE id = ?";
     private static final String CHECK_USER_FOR_EMAIL_AND_PASS = "SELECT * FROM users WHERE email = ? and pass = ?";
     private static final String GET_PRODUCTS_FOR_PETS = "SELECT * FROM products WHERE pet_id = ?";
+    private static final String GET_PRODUCTS_FOR_PETID_AND_TYPE = "SELECT * FROM products WHERE pet_id = ? and type_id = ?";
     private static final String UPDATE_PRODUCT_FOR_AMOUNT = "UPDATE products WHERE id = ? SET amount = amount-?";
     private static final String UPDATE_PRODUCT = "UPDATE products WHERE id = ? SET name=?, price=?, description=?, amount=?, weight=?, producer=?, type_id=?, age=?, breed=?, pet_id=?, photo_link=?";
     private static final String GET_USER_FOR_EMAIL = "SELECT * FROM users WHERE email = ?";
+
     private static DBManager instance;
 
     private DBManager() {
@@ -118,10 +120,8 @@ public class DBManager {
             prep.setString(k++, user.getPass());
             prep.setString(k++, user.getPhone());
             prep.setString(k++, user.getEmail());
-
-            UserRole userRole = user.getRole();
-            int roleId = userRole != null ? userRole.getRoleId() : UserRole.USER.getRoleId();
-            prep.setInt(k, roleId);
+            prep.setInt(k, user.getRole())
+           ;
 
             if (prep.executeUpdate() > 0) {
                 rs = prep.getGeneratedKeys();
@@ -154,7 +154,7 @@ public class DBManager {
         user.setPass(rs.getString(k++));
         user.setPhone(rs.getString(k++));
         user.setEmail(rs.getString(k++));
-        user.setRole(UserRole.fromId(rs.getInt(k)));
+        user.setRole(rs.getInt(k));
 
         return user;
     }
@@ -223,10 +223,10 @@ public class DBManager {
             prep.setString(k++, prod.getAmount());
             prep.setString(k++, prod.getWeight());
             prep.setString(k++, prod.getProducer()); 
-            prep.setString(k++, prod.getType_id());
+            prep.setInt(k++, prod.getType_id());
             prep.setString(k++, prod.getAge()); 
             prep.setString(k++, prod.getBreed());
-            prep.setString(k++, prod.getPet_id());
+            prep.setInt(k++, prod.getPet_id());
             prep.setString(k, prod.getPhoto_link());
            
 
@@ -301,6 +301,31 @@ public class DBManager {
         return allProd;
 
     }
+
+    public List<Product> getProductsForTypeAndPetId(int petid, int type) {
+        List<Product> allProd = new ArrayList<>();
+        Connection connect = null;
+        PreparedStatement prep = null;
+        ResultSet rs = null;
+
+        try {
+            connect = DriverManager.getConnection(CONNECTION_URL);
+            prep = connect.prepareStatement(GET_PRODUCTS_FOR_PETID_AND_TYPE);
+            prep.setInt(1, petid);
+            prep.setInt(2, type);
+            rs = prep.executeQuery();
+
+            while (rs.next()) {
+                allProd.add(extractionProduct(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(connect);
+        }
+
+        return allProd;
+    }
     
     public boolean updateProduct(int id, String name, String price, String description, String amount, String weight, String producer,
             String type_id, String age, String breed, String pet_id, String photo_link) {
@@ -350,10 +375,10 @@ public class DBManager {
         prod.setAmount(rs.getString(k++));
         prod.setWeight(rs.getString(k++));
         prod.setProducer(rs.getString(k++));
-        prod.setType_id(rs.getString(k++));
+        prod.setType_id(rs.getInt(k++));
         prod.setAge(rs.getString(k++));
         prod.setBreed(rs.getString(k++));
-        prod.setPet_id(rs.getString(k++));
+        prod.setPet_id(rs.getInt(k++));
         prod.setPhoto_link(rs.getString(k));
 
         return prod;
@@ -396,4 +421,6 @@ public class DBManager {
             e.printStackTrace();
         }
     }
+
+
 }

@@ -32,7 +32,7 @@ public class RegistrationServlet extends HttpServlet {
         String phone = request.getParameter("mobile");
         String mail = request.getParameter("email");
         String pass = request.getParameter("pass");
-        User user = User.createUser(name, sur, phone, mail, pass, UserRole.USER);
+        User user = User.createUser(name, sur, phone, mail, pass, 0);
         DBManager.getInstance().insertUser(user);
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
