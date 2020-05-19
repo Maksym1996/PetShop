@@ -42,7 +42,7 @@ public class AddProductServlet extends HttpServlet {
         Product prod = Product.createProduct(name, price, description, amount, weight, producer,
                 type_id, age, breed, pet_id, photo_link);
         DBManager.getInstance().insertProduct(prod);
-        String direct = "Catalog?pet"+ type_id;
+        String direct = "Catalog?pet="+ type_id;
         response.sendRedirect(direct);
     }
 

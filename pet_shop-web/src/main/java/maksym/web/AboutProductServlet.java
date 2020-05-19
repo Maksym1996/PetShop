@@ -33,9 +33,9 @@ public class AboutProductServlet extends HttpServlet {
         if (prod.getBreed() != null) {
             breed = prod.getBreed();
         } else {
-            breed = "-";
+            breed = "None";
         }
-        
+        System.out.println(prod.getDescription());
         request.setAttribute("prod", prod);
          request.setAttribute("breed", breed);
         

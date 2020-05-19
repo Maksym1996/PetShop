@@ -18,7 +18,7 @@
 		  	<tr>
 		  		<td>
 		  			<figure class="sign">
-		  				<img src= prod.getPhoto_link() height = "300" width ="200">
+		  				<img src= <c:out value = "${prod.photo_link}"/> height = "300" width ="200">
 		  			</figure>
 		  		</td>
 		  		<td>

@@ -23,14 +23,22 @@ public class ProfileServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String forwardPage;
-        if (session == null || session.getAttribute("user") == null) {
-            forwardPage = "Profile.html";
-        } else {
-            User user = (User)session.getAttribute("user");
-            session.setAttribute("role", user.getRole());
-            forwardPage = "UserProfile.jsp";
+        String logout = request.getParameter("logout");
 
+        if("logout".equals(logout)) {
+            session.setAttribute("log", logout);
+            session.removeAttribute("user");
+            session.removeAttribute("role");
         }
+        if (session == null || session.getAttribute("user") == null) {
+               forwardPage = "Profile.html";
+        } else {
+               User user = (User) session.getAttribute("user");
+               session.setAttribute("role", user.getRole());
+               forwardPage = "UserProfile.jsp";
+
+           }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPage);
         dispatcher.forward(request, response);
     }

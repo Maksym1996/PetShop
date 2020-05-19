@@ -11,7 +11,7 @@
 	<LINK rel="stylesheet" href="reset.css">
 	<styles>
 	    h1{
-	        font-size:30px;
+	        font-size: 50px;
 	    }
 	</styles>
 	<title>Мой профиль</title>
@@ -42,6 +42,9 @@
 	 		<button type = "submit" id = "circular-button">На главную</button>
 	 	</form>
 	 </div>
-	 
+	 <form action = "Profile">
+	            <input type="hidden" name="log" id = "log" value = "logout" />
+     	 		<button type = "submit" id = "circular-button">Выйти из учетной записи</button>
+     </form>
 </body>
 </html>

@@ -35,7 +35,7 @@ public class DBManager {
     private static final String GET_PRODUCTS_FOR_PETS = "SELECT * FROM products WHERE pet_id = ?";
     private static final String GET_PRODUCTS_FOR_PETID_AND_TYPE = "SELECT * FROM products WHERE pet_id = ? and type_id = ?";
     private static final String UPDATE_PRODUCT_FOR_AMOUNT = "UPDATE products WHERE id = ? SET amount = amount-?";
-    private static final String UPDATE_PRODUCT = "UPDATE products WHERE id = ? SET name=?, price=?, description=?, amount=?, weight=?, producer=?, type_id=?, age=?, breed=?, pet_id=?, photo_link=?";
+    private static final String UPDATE_PRODUCT = "UPDATE products SET name=?, price=?, description=?, amount=?, weight=?, producer=?, type_id=?, age=?, breed=?, pet_id=?, photo_link=? WHERE id = ? ";
     private static final String GET_USER_FOR_EMAIL = "SELECT * FROM users WHERE email = ?";
 
     private static DBManager instance;
@@ -327,8 +327,8 @@ public class DBManager {
         return allProd;
     }
     
-    public boolean updateProduct(int id, String name, String price, String description, String amount, String weight, String producer,
-            String type_id, String age, String breed, String pet_id, String photo_link) {
+    public boolean updateProduct( String name, String price, String description, String amount, String weight, String producer,
+            String type_id, String age, String breed, String pet_id, String photo_link, int id) {
     	boolean result = false;
     	Connection connect = null;
         PreparedStatement prep = null;
@@ -337,7 +337,7 @@ public class DBManager {
         	connect = DriverManager.getConnection(CONNECTION_URL);
         	prep = connect.prepareStatement(UPDATE_PRODUCT);
         	int k = 1;
-        	prep.setInt(k++, id);
+
         	prep.setString(k++, name);
         	prep.setString(k++, price);
         	prep.setString(k++, description);
@@ -348,7 +348,8 @@ public class DBManager {
         	prep.setString(k++, age);
         	prep.setString(k++, breed);
         	prep.setString(k++, pet_id);
-        	prep.setString(k, photo_link);
+        	prep.setString(k++, photo_link);
+            prep.setInt(k, id);
         	
         	if(prep.executeUpdate()>0){
                 result = true;

@@ -17,6 +17,7 @@ public class EditProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         String prodId = request.getParameter("id");
         Product prod = DBManager.getInstance().getProductForId((Integer.parseInt(prodId)));
         request.setAttribute("prod", prod);
@@ -27,10 +28,12 @@ public class EditProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       request.setCharacterEncoding("UTF-8");
     	int id = Integer.parseInt(request.getParameter("id"));
-    	String name = request.getParameter("name");
+    	String name = request.getParameter("name1");
         String price = request.getParameter("price");
         String description = request.getParameter("description");
+
         String amount = request.getParameter("amount");
         String weight = request.getParameter("weight");
         String producer = request.getParameter("producer");
@@ -39,10 +42,11 @@ public class EditProductServlet extends HttpServlet {
         String breed = request.getParameter("breed");
         String pet_id = request.getParameter("pet_id");
         String photo_link = request.getParameter("photo_link");
+        System.out.println(description);
 
-        DBManager.getInstance().updateProduct(id, name, price, description, amount, weight, producer,
-        		type_id, age, breed, pet_id, photo_link);
-        String direct = "AboutProduct?id="+ id;
+        DBManager.getInstance().updateProduct(name, price, description, amount, weight, producer,
+        		type_id, age, breed, pet_id, photo_link, id);
+        String direct = "AboutProduct?id="+id;
         response.sendRedirect(direct);
 
     }
