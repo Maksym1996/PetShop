@@ -20,13 +20,13 @@ public class BasketServlet extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         HttpSession session = request.getSession();
         Basket basket = (Basket) session.getAttribute("basket");
-        StringBuffer result = new StringBuffer();
+
         if (basket == null) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("Basket.html");
             dispatcher.forward(request, response);
             return;
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Basket.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Basket.jsp");
         dispatcher.forward(request, response);
 
       

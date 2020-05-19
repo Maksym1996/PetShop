@@ -9,11 +9,12 @@
 	<meta charset="utf-8">
 	<LINK rel="stylesheet" href="styles.css">
 	<LINK rel="stylesheet" href="reset.css">
-	<styles>
-	    h1{
-	        font-size: 50px;
-	    }
-	</styles>
+	<style>
+	     h1{
+                    font-family: 'Courier New';
+                    font-size: 50px;
+               }
+	</style>
 	<title>Мой профиль</title>
 </head>
 <body>
@@ -43,7 +44,7 @@
 	 	</form>
 	 </div>
 	 <form action = "Profile">
-	            <input type="hidden" name="log" id = "log" value = "logout" />
+	            <input type="hidden" name="logout" id = "logout" value = "logout" />
      	 		<button type = "submit" id = "circular-button">Выйти из учетной записи</button>
      </form>
 </body>

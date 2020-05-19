@@ -6,10 +6,7 @@ import maksym.db.entity.User;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -26,11 +23,11 @@ public class ProfileServlet extends HttpServlet {
         String logout = request.getParameter("logout");
 
         if("logout".equals(logout)) {
-            session.setAttribute("log", logout);
-            session.removeAttribute("user");
-            session.removeAttribute("role");
-        }
-        if (session == null || session.getAttribute("user") == null) {
+
+           session.invalidate();
+
+            forwardPage = "Profile.html";
+        } else if (session == null || session.getAttribute("user") == null) {
                forwardPage = "Profile.html";
         } else {
                User user = (User) session.getAttribute("user");

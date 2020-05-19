@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Servlet implementation class Basket
+ * Servlet implementation class back
  */
 @WebServlet(value = "/back", name= "/Basket")
 public class BackToProductsServlet extends HttpServlet {
@@ -38,6 +38,9 @@ public class BackToProductsServlet extends HttpServlet {
         }
         List<Product> products = basket.getProducts();
         products.add(prod);
+        basket.setProducts(products);
+
+
         response.sendRedirect("Catalog?pet=" + prod.getPet_id());
     }
 

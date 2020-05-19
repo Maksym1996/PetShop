@@ -42,7 +42,7 @@ public class EditProductServlet extends HttpServlet {
         String breed = request.getParameter("breed");
         String pet_id = request.getParameter("pet_id");
         String photo_link = request.getParameter("photo_link");
-        System.out.println(description);
+
 
         DBManager.getInstance().updateProduct(name, price, description, amount, weight, producer,
         		type_id, age, breed, pet_id, photo_link, id);

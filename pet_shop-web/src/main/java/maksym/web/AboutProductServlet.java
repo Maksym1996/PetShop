@@ -35,7 +35,7 @@ public class AboutProductServlet extends HttpServlet {
         } else {
             breed = "None";
         }
-        System.out.println(prod.getDescription());
+
         request.setAttribute("prod", prod);
          request.setAttribute("breed", breed);
         
