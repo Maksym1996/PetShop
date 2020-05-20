@@ -3,6 +3,7 @@ package maksym.web;
 import maksym.db.DBManager;
 import maksym.db.entity.Basket;
 import maksym.db.entity.Product;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,18 +28,18 @@ public class BackToProductsServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
         int id = Integer.parseInt(request.getParameter("id"));
-
         Product prod = DBManager.getInstance().getProductForId(id);
 
         HttpSession session = request.getSession(true);
         Basket basket = (Basket) session.getAttribute("basket");
+
         if (basket == null) {
             basket = new Basket();
             session.setAttribute("basket", basket);
         }
+
         List<Product> products = basket.getProducts();
         products.add(prod);
-        basket.setProducts(products);
 
 
         response.sendRedirect("Catalog?pet=" + prod.getPet_id());

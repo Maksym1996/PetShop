@@ -31,6 +31,19 @@
                         <br>
                         <p> <c:out value="${prod.name}"/> , <c:out value="${prod.weight}"/> гр.</p>
                         <p> <font size=+2 color=green>  <c:out value="${prod.price}"/> ГРН</font></p>
+                        <form action="basket" method = "GET" >
+                        	<input type = "hidden" name = "id" id = "id" value = <c:out value = "${prod.id}"/> />
+                            <button type="submit" id = "circular-button">Удалить из корзины</button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <div>
+                          <input type="number" step="1" min="1" max="30" id="num_count" name="quantity" value="1" title="Qty">
+                        </div>
+                        <div>
+                            <%  %>
+                        </div>
                     </td>
 
              </tr>

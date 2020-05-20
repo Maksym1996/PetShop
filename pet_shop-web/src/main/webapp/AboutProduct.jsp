@@ -63,6 +63,7 @@
 		  			<form action="back" method = "GET" >
 		  				<input type = "hidden" name = "id" id = "id" value = <c:out value = "${prod.id}"/> />
 		  				<button type="submit" id = "circular-button">Добавить в корзину</button>
+		  			</form>
 		  		</td>
 		  	</tr>
 		  </table>
