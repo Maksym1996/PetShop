@@ -46,7 +46,7 @@ a:hover {
 	font-size:16px;
 	font-weight: bold;
 	width: 200px;
-	margin-left:10px;
+	margin-left:20px;
 	margin-top: 10px;
 	
 }
@@ -164,7 +164,7 @@ a:hover {
 
                 font-weight: bold;
                 text-shadow: -5px -4px 3px #999;
-                font-size: 50px;
+                font-size: 20px;
 
 			}
 			
@@ -175,7 +175,7 @@ a:hover {
 			    margin:0;
 			    list-style: none;
 			    position: relative;
-			    margin-left: 20%;
+			    margin-left: 30%;
 
 			    }
 			
@@ -192,7 +192,7 @@ a:hover {
 			    display:block;
 			    padding:0 10px;
 			    color:#FFF;
-			    font-size:50px;
+			    font-size:30px;
 			    line-height: 60px;
 			    text-decoration:none;
 
@@ -222,7 +222,7 @@ a:hover {
 			    display:list-item;
 			    position: relative;
 
-                 left: -53%;
+                 left: -120%;
 			}
 
 		/* изменить ' +' на любой другой символ, если нужно

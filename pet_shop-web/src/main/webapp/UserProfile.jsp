@@ -24,6 +24,7 @@
                           border: solid 1px silver;
                           text-align:center;
                       }
+
 	</style>
 	<title>Мой профиль</title>
 </head>

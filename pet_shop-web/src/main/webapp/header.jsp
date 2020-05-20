@@ -31,9 +31,9 @@
     </div>
 </div>
 
-<div class = "bottom-head">
+
     <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/OrangeLine.PNG" height="15" width="100%">
-</div>
+
 
 
 
@@ -81,7 +81,7 @@
         </li>
     </ul>
 </nav>
-  <div class = "bottom-head">
+
     <img src="https://raw.githubusercontent.com/Maksym1996/Diplom/master/OrangeLine.PNG" height="15" width="100%">
-    </div>
+
 

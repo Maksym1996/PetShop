@@ -7,6 +7,11 @@
 	<meta charset="utf-8">
 	<LINK rel="stylesheet" href="styles.css">
 	<LINK rel="stylesheet" href="reset.css">
+	<style>
+    div{
+        margin-left: 30px;
+    }
+     </style>
 	<title>Мой профиль</title>
 </head>
 <body>

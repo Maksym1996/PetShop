@@ -11,6 +11,9 @@
               	<LINK rel="stylesheet" href="styles.css">
               	<LINK rel="stylesheet" href="reset.css">
               	<style>
+              	        div{
+              	            margin-left: 30px;
+              	        }
                         p{
                             font-family:'Courier New';
                             font-size: 20px;
@@ -26,7 +29,8 @@
 	<body>
 
 		  <jsp:include page="header.jsp" />
-		  <h1 align = "center">Изменение товара товара</h1>
+		  <h1 align = "center">Изменение товара </h1>
+		  <div>
               <form action="EditProduct" method="post">
                     <INPUT required  TYPE="hidden" NAME="id" id="id" value = "<c:out value = "${prod.id}"/>" />
                   <br>
@@ -112,6 +116,7 @@
                   <br>
                   <button type = "submit"  id = "circular-button">Изменить товар</button>
               </form>
+             </div>
               <br>
               <br>
        
