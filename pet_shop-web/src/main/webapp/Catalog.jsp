@@ -14,8 +14,7 @@
 <body>
 
 	<jsp:include page="header.jsp" />
-<p><c:out value="${type}"/></p>
-<p><c:out value="${pet}"/></p>
+
 	<div align="center">
 		<font size+=10><b> Каталог товаров</b></font>
 	</div>
