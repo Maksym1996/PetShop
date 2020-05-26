@@ -1,8 +1,7 @@
 package maksym.web;
 
-import maksym.db.DBManager;
+import maksym.db.UserDAO;
 import maksym.db.entity.User;
-import maksym.db.entity.UserRole;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,7 +32,11 @@ public class RegistrationServlet extends HttpServlet {
         String mail = request.getParameter("email");
         String pass = request.getParameter("pass");
         User user = User.createUser(name, sur, phone, mail, pass, 0);
-        DBManager.getInstance().insertUser(user);
+        try {
+            UserDAO.getInstance().insertUser(user);
+        } catch (Exception e) {
+            response.sendRedirect("SomeWrong.html");
+        }
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
         response.sendRedirect("MainPage.jsp");

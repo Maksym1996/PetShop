@@ -1,7 +1,6 @@
 package maksym.web;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,11 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import maksym.db.DBManager;
-import maksym.db.TypeProduct;
+import maksym.db.ProductDAO;
 import maksym.db.entity.Product;
-import maksym.db.entity.User;
-import maksym.photo.PhotoLinks;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -38,17 +34,26 @@ public class CatalogServlet extends HttpServlet {
         }*/
 
         int pet = Integer.parseInt(petString);
-        List<Product> prod;
+        List<Product> prod = null;
        if (StringUtils.isNotBlank(typeString)) {
            int type = Integer.parseInt(typeString);
-           prod = DBManager.getInstance().getProductsForTypeAndPetId(pet, type);
+
+           try {
+               prod = ProductDAO.getInstance().getProductsForTypeAndPetId(pet, type);
+           } catch (Exception e) {
+               response.sendRedirect("SomeWrong.html");
+           }
            request.setAttribute("products", prod);
            RequestDispatcher dispatcher = request.getRequestDispatcher("Catalog.jsp");
            dispatcher.forward(request, response);
 
 
         } else {
-           prod = DBManager.getInstance().getProductsForPetId(pet);
+           try {
+               prod = ProductDAO.getInstance().getProductsForPetId(pet);
+           } catch (Exception e) {
+               response.sendRedirect("SomeWrong.html");
+           }
            request.setAttribute("products", prod);
            RequestDispatcher dispatcher = request.getRequestDispatcher("Catalog.jsp");
            dispatcher.forward(request, response);

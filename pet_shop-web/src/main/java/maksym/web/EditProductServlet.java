@@ -1,6 +1,6 @@
 package maksym.web;
 
-import maksym.db.DBManager;
+import maksym.db.ProductDAO;
 import maksym.db.entity.Product;
 
 import javax.servlet.RequestDispatcher;
@@ -19,7 +19,12 @@ public class EditProductServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String prodId = request.getParameter("id");
-        Product prod = DBManager.getInstance().getProductForId((Integer.parseInt(prodId)));
+        Product prod = null;
+        try {
+            prod = ProductDAO.getInstance().getProductForId(Integer.parseInt(prodId));
+        } catch (Exception e) {
+            response.sendRedirect("SomeWrong.html");
+        }
         request.setAttribute("prod", prod);
         RequestDispatcher dispatcher = request.getRequestDispatcher("EditProduct.jsp");
         dispatcher.forward(request,response);
@@ -44,8 +49,12 @@ public class EditProductServlet extends HttpServlet {
         String photo_link = request.getParameter("photo_link");
 
 
-        DBManager.getInstance().updateProduct(name, price, description, amount, weight, producer,
-        		type_id, age, breed, pet_id, photo_link, id);
+        try {
+            ProductDAO.getInstance().updateProduct(name, price, description, amount, weight, producer,
+                    type_id, age, breed, pet_id, photo_link, id);
+        } catch (Exception e) {
+            response.sendRedirect("SomeWrong.html");
+        }
         String direct = "AboutProduct?id="+id;
         response.sendRedirect(direct);
 

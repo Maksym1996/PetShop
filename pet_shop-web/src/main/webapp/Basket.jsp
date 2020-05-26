@@ -39,20 +39,22 @@
 
                     <td>
                         <div>
+                        <form action = "BuyOneProduct">
+                          <input type = "hidden" name = "id" id = "id" value = <c:out value = "${prod.id}"/> />
                           <input type="number" step="1" min="1" max="30" id="num_count" name="quantity" value="1" title="Qty">
+                          <button type="submit" id= "circular-button">Заказать</button>
+                          </form>
                         </div>
-                        <div>
-                            <%  %>
-                        </div>
+
                     </td>
 
              </tr>
             </c:forEach>
         </table>
-        <br><br><br><br><br>
+       <br><br><br><br><br>
         <form  action="SuccessBuy">
         <div align="center">
-            <button type="submit" id= "circular-button">ЗАКАЗАТЬ</button>
+            <button type="submit" id= "circular-button">ЗАКАЗАТЬ ВСЁ</button>
         </div>
 
     </body>

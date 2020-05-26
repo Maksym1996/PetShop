@@ -1,6 +1,6 @@
 package maksym.web;
 
-import maksym.db.DBManager;
+import maksym.db.UserDAO;
 import maksym.db.entity.User;
 
 import javax.servlet.RequestDispatcher;
@@ -9,8 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Objects;
-
-import static maksym.db.entity.UserRole.ADMIN;
 
 @WebServlet("/Profile")
 public class ProfileServlet extends HttpServlet {
@@ -45,7 +43,7 @@ public class ProfileServlet extends HttpServlet {
             throws ServletException, IOException {
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
-        User user = DBManager.getInstance().getUserForEmail(email);
+        User user = UserDAO.getInstance().getUserForEmail(email);
         if (user == null) {
             response.sendRedirect("Profile.html");
             return;

@@ -55,7 +55,7 @@
                   </p>
                   <br>
                   <INPUT required TYPE="text" NAME="description" id="description" SIZE="100" value = "<c:out value = "${prod.description}"/>" />
-                  <p><c:out value = "${prod.description}"/></p>
+
                   <br>
                   <br>
                   <p>

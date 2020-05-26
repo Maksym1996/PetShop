@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import maksym.db.DBManager;
-import maksym.db.TypeProduct;
+import maksym.db.ProductDAO;
 import maksym.db.entity.Product;
-import maksym.photo.PhotoLinks;
 
 /**
  * Servlet implementation class AboutProduct
@@ -28,8 +26,13 @@ public class AboutProductServlet extends HttpServlet {
             throws ServletException, IOException {
         int prodID = Integer.parseInt(request.getParameter("id"));
 
-        Product prod = DBManager.getInstance().getProductForId(prodID);    
-             String breed;
+        Product prod = null;
+        try {
+            prod = ProductDAO.getInstance().getProductForId(prodID);
+        } catch (Exception e) {
+            response.sendRedirect("SomeWrong.html");
+        }
+        String breed;
         if (prod.getBreed() != null) {
             breed = prod.getBreed();
         } else {

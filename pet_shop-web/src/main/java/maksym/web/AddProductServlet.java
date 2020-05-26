@@ -1,9 +1,7 @@
 package maksym.web;
 
-import maksym.db.DBManager;
+import maksym.db.ProductDAO;
 import maksym.db.entity.Product;
-import maksym.db.entity.User;
-import maksym.db.entity.UserRole;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/AddProduct")
@@ -41,7 +38,11 @@ public class AddProductServlet extends HttpServlet {
 
         Product prod = Product.createProduct(name, price, description, amount, weight, producer,
                 type_id, age, breed, pet_id, photo_link);
-        DBManager.getInstance().insertProduct(prod);
+        try {
+            ProductDAO.getInstance().insertProduct(prod);
+        } catch (Exception e) {
+            response.sendRedirect("SomeWrong.html");
+        }
         String direct = "Catalog?pet="+ type_id;
         response.sendRedirect(direct);
     }
