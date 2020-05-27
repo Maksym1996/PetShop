@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Servlet implementation class back
  */
-@WebServlet(value = "/back", name= "/Basket")
+@WebServlet(value = "/back", name= "Basket")
 public class BackToProductsServlet extends HttpServlet {
 
     /**

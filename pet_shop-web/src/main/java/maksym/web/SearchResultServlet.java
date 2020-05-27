@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("SearchResult")
+@WebServlet("/SearchResult")
 public class SearchResultServlet extends HttpServlet {
 
     @Override
@@ -21,18 +21,18 @@ public class SearchResultServlet extends HttpServlet {
             throws ServletException, IOException {
         String requestString = request.getParameter("search");
 
-        if(StringUtils.isBlank(requestString)){
+        if (StringUtils.isBlank(requestString)) {
             response.sendRedirect("ErrorSearchRequest.html");
-        }else{
+        } else {
             List<Product> prod = null;
             try {
                 prod = ProductDAO.getInstance().getProductsForSearchRequest(requestString);
             } catch (Exception e) {
                 response.sendRedirect("SomeWrong.html");
             }
-            if(prod == null){
+            if (prod == null) {
                 response.sendRedirect("ErrorSearchRequest.html");
-            } else{
+            } else {
                 request.setAttribute("products", prod);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("Catalog.jsp");
                 dispatcher.forward(request, response);

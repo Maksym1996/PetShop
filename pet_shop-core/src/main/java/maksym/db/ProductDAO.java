@@ -16,7 +16,7 @@ public class ProductDAO {
     private static final String GET_PRODUCTS_FOR_PETID_AND_TYPE = "SELECT * FROM products WHERE pet_id = ? and type_id = ?";
     private static final String UPDATE_PRODUCT = "UPDATE products SET name=?, price=?, description=?, amount=?, weight=?, producer=?, type_id=?, age=?, breed=?, pet_id=?, photo_link=? WHERE id = ? ";
     private static final String UPDATE_PRODUCT_FOR_AMOUNT = "UPDATE products WHERE id = ? SET amount = amount-?";
-    private static final String GET_PRODUCTS_FOR_SEARCH_REQUEST = "SELECT * FROM products WHERE name = ? OR producer = ?";
+    private static final String GET_PRODUCTS_FOR_SEARCH_REQUEST = "SELECT * FROM products WHERE name LIKE ? OR producer LIKE ? OR description LIKE ?";
     private ProductDAO() {
 
     }
@@ -214,11 +214,15 @@ public class ProductDAO {
         PreparedStatement prep = null;
         ResultSet rs = null;
 
+        String requestStringPattern = '%' + requestString + '%';
+
         try {
             connect = DriverManager.getConnection(CONNECTION_URL);
             prep = connect.prepareStatement(GET_PRODUCTS_FOR_SEARCH_REQUEST);
-            prep.setString(1, requestString);
-            prep.setString(2, requestString);
+            int k = 1;
+            prep.setString(k++, requestStringPattern);
+            prep.setString(k++, requestStringPattern);
+            prep.setString(k, requestStringPattern);
             rs = prep.executeQuery();
 
             while (rs.next()) {

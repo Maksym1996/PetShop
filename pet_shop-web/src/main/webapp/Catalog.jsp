@@ -3,6 +3,7 @@
 <html>
 <head>
 <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+<META CHARSET="UTF-8">
 <META HTTP-EQUIV="CONTENT-LANGUAGE" CONTENT="uk-UK">
 <META NAME="DESCRIPTION" CONTENT="Онлайн-магазин для домашніх тварин">
 <META NAME="KEYWORDS"
