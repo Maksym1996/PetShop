@@ -33,11 +33,9 @@ public class BuyOneProductServlet extends HttpServlet {
         order.setUser_id(user.getId());
         order.setProdut_id(prodID);
         order.setCount_product(count);
-        try {
+
             OrderDAO.getInstance().insertOrder(order);
-        } catch (Exception e) {
-            response.sendRedirect("SomeWrong.html");
-        }
+
         Basket   basket = (Basket)session.getAttribute("basket");
         List<Product> products = basket.getProducts();
         for(Product p : products) {
@@ -48,7 +46,7 @@ public class BuyOneProductServlet extends HttpServlet {
         }
 
         if (basket == null || products.isEmpty()) {
-                      response.sendRedirect("Gratitude.html");
+                      response.sendRedirect("Gratitude.jsp");
             return;
         }
 

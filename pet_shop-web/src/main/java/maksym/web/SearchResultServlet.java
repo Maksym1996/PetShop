@@ -22,19 +22,19 @@ public class SearchResultServlet extends HttpServlet {
         String requestString = request.getParameter("search");
 
         if (StringUtils.isBlank(requestString)) {
-            response.sendRedirect("ErrorSearchRequest.html");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorSearchRequest.jsp");
+            dispatcher.forward(request, response);
         } else {
             List<Product> prod = null;
-            try {
-                prod = ProductDAO.getInstance().getProductsForSearchRequest(requestString);
-            } catch (Exception e) {
-                response.sendRedirect("SomeWrong.html");
-            }
-            if (prod == null) {
-                response.sendRedirect("ErrorSearchRequest.html");
-            } else {
+            prod = ProductDAO.getInstance().getProductsForSearchRequest(requestString);
+
+            if (prod != null) {
+
                 request.setAttribute("products", prod);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("Catalog.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("ErrorSearchRequest.jsp");
                 dispatcher.forward(request, response);
             }
         }

@@ -44,16 +44,13 @@ public class SuccessBuyServlet extends HttpServlet {
             //manager.updateProductAmount(prod, 1);
             order.setProdut_id(prod.getId());
             order.setCount_product(1);
-            try {
-                OrderDAO.getInstance().insertOrder(order);
-            } catch (Exception e) {
-                response.sendRedirect("SomeWrong.html");
-            }
+            OrderDAO.getInstance().insertOrder(order);
+
             // orders.add(order);
 
         }
         session.removeAttribute("basket");
-        response.sendRedirect("Gratitude.html");
+        response.sendRedirect("Gratitude.jsp");
 
     }
 

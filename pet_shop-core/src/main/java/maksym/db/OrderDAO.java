@@ -17,7 +17,7 @@ public class OrderDAO {
     }
 
 
-    public boolean insertOrder(Order order) throws Exception  {
+    public boolean insertOrder(Order order)   {
         boolean res = false;
         Connection connect = null;
         PreparedStatement prep = null;
@@ -65,7 +65,7 @@ public class OrderDAO {
         return order;
     }
 
-    private static void close(Connection con) throws Exception {
+    private static void close(Connection con)  {
         if (con == null) {
             return;
         }

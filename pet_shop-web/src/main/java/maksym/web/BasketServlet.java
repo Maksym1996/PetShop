@@ -25,7 +25,7 @@ public class BasketServlet extends HttpServlet {
         Basket basket = (Basket) session.getAttribute("basket");
 
         if (basket == null ) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Basket.html");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("BasketEmpty.jsp");
             dispatcher.forward(request, response);
             return;
         }
@@ -44,7 +44,7 @@ public class BasketServlet extends HttpServlet {
         }
 
         if (basket == null || products.isEmpty()) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Basket.html");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("BasketEmpty.jsp");
             dispatcher.forward(request, response);
             return;
         }

@@ -13,6 +13,7 @@
 	     h1{
                     font-family: 'Courier New';
                     font-size: 50px;
+                    margin-left:10px;
                }
           p{
             font-family: 'Courier New';
@@ -47,7 +48,7 @@
 	 	<br>
 	 	<p style="color:#000080"><c:out value="${user.phone}"/></p>
 	 	<br>
-	 	<p>Електронная почта</p>
+	 	<p>Электронная почта</p>
 	 	<br>
 	 	<p style="color:#000080"><c:out value="${user.email}"/></p>
 	 	<br>

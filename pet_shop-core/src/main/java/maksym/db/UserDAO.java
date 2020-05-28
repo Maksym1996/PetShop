@@ -1,8 +1,11 @@
 package maksym.db;
 
+import maksym.db.entity.Product;
 import maksym.db.entity.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
@@ -10,6 +13,7 @@ public class UserDAO {
     private static final String SQL_INSERT_USER = "INSERT INTO users VALUES(DEFAULT,?,?,?,?,?,?)";
     private static final String GET_USER_FOR_EMAIL = "SELECT * FROM users WHERE email = ?";
     private static final String CHECK_USER_FOR_EMAIL_AND_PASS = "SELECT * FROM users WHERE email = ? and pass = ?";
+    private static final String GET_ALL_USERS = "SELECT * FROM users";
 
     private static UserDAO instance;
     public static synchronized UserDAO getInstance() {
@@ -17,6 +21,27 @@ public class UserDAO {
             instance = new UserDAO();
         }
         return instance;
+    }
+
+   public List<User> getAllUsers (){
+        List<User> allUser = new ArrayList<>();
+        Connection connect = null;
+        Statement stat = null;
+        ResultSet rs = null;
+
+        try{
+            connect = DriverManager.getConnection(CONNECTION_URL);
+            stat = connect.createStatement();
+            rs = stat.executeQuery(GET_ALL_USERS);
+            while (rs.next()) {
+                allUser.add(extrationUser(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(connect);
+        }
+        return allUser;
     }
 
         public User getUserForEmail(String email) {
@@ -43,7 +68,7 @@ public class UserDAO {
         return user;
     }
 
-    public boolean insertUser(User user) throws Exception {
+    public boolean insertUser(User user)  {
         boolean res = false;
         Connection connect = null;
         PreparedStatement prep = null;

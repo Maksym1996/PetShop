@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
     <head>
        <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
@@ -9,6 +10,9 @@
               	<LINK rel="stylesheet" href="styles.css">
               	<LINK rel="stylesheet" href="reset.css">
               	<style>
+              	    h3{
+              	         margin-left:10px;
+              	    }
               	    h1{
               	    font-size: 50px;
               	    font-family: 'Courier New'
@@ -19,7 +23,8 @@
                       }
                       .bot {
                                              float:left; /* Выравнивание по левому краю */
-                                             margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+                                             margin: 7px 7px 7px 10px; /* Отступы вокруг картинки */
+
                                             }
               	</style>
         <title>Про товаре</title>

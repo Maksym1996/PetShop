@@ -38,22 +38,16 @@ public class CatalogServlet extends HttpServlet {
        if (StringUtils.isNotBlank(typeString)) {
            int type = Integer.parseInt(typeString);
 
-           try {
-               prod = ProductDAO.getInstance().getProductsForTypeAndPetId(pet, type);
-           } catch (Exception e) {
-               response.sendRedirect("SomeWrong.html");
-           }
+           prod = ProductDAO.getInstance().getProductsForTypeAndPetId(pet, type);
+
            request.setAttribute("products", prod);
            RequestDispatcher dispatcher = request.getRequestDispatcher("Catalog.jsp");
            dispatcher.forward(request, response);
 
 
         } else {
-           try {
-               prod = ProductDAO.getInstance().getProductsForPetId(pet);
-           } catch (Exception e) {
-               response.sendRedirect("SomeWrong.html");
-           }
+           prod = ProductDAO.getInstance().getProductsForPetId(pet);
+
            request.setAttribute("products", prod);
            RequestDispatcher dispatcher = request.getRequestDispatcher("Catalog.jsp");
            dispatcher.forward(request, response);

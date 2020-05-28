@@ -3,11 +3,14 @@ package maksym.web;
 import maksym.db.UserDAO;
 import maksym.db.entity.User;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @WebServlet("/Profile")
@@ -24,9 +27,9 @@ public class ProfileServlet extends HttpServlet {
 
            session.invalidate();
 
-            forwardPage = "Profile.html";
+            forwardPage = "Profile.jsp";
         } else if (session == null || session.getAttribute("user") == null) {
-               forwardPage = "Profile.html";
+               forwardPage = "Profile.jsp";
         } else {
                User user = (User) session.getAttribute("user");
                session.setAttribute("role", user.getRole());
@@ -44,19 +47,28 @@ public class ProfileServlet extends HttpServlet {
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
         User user = UserDAO.getInstance().getUserForEmail(email);
+        Map<String, String> errors = new HashMap<>();
+
         if (user == null) {
-            response.sendRedirect("Profile.html");
+            errors.put("error", "Entered Login or Password is incorrectly");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Profile.jsp");
+            request.setAttribute("errors", errors);
+            dispatcher.forward(request, response);
             return;
         }
         if (!Objects.equals(user.getPass(), pass)) {
-            response.sendRedirect("Profile.html");
+            errors.put("error", "Entered Login or Password is incorrectly");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Profile.jsp");
+            request.setAttribute("errors", errors);
+            dispatcher.forward(request, response);
             return;
         }
 
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
         session.setAttribute("role", user.getRole());
-        response.sendRedirect("UserProfile.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("UserProfile.jsp");
+        dispatcher.forward(request, response);
         
     }
 

@@ -27,11 +27,9 @@ public class AboutProductServlet extends HttpServlet {
         int prodID = Integer.parseInt(request.getParameter("id"));
 
         Product prod = null;
-        try {
+
             prod = ProductDAO.getInstance().getProductForId(prodID);
-        } catch (Exception e) {
-            response.sendRedirect("SomeWrong.html");
-        }
+
         String breed;
         if (prod.getBreed() != null) {
             breed = prod.getBreed();

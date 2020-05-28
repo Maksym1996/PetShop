@@ -29,11 +29,9 @@ public class BackToProductsServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         Product prod = null;
-        try {
+
             prod = ProductDAO.getInstance().getProductForId(id);
-        } catch (Exception e) {
-            response.sendRedirect("SomeWrong.html");
-        }
+
 
         HttpSession session = request.getSession(true);
         Basket basket = (Basket) session.getAttribute("basket");

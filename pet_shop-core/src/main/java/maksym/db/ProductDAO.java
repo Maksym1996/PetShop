@@ -1,6 +1,7 @@
 package maksym.db;
 
 import maksym.db.entity.Product;
+import maksym.db.entity.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class ProductDAO {
     private static final String UPDATE_PRODUCT = "UPDATE products SET name=?, price=?, description=?, amount=?, weight=?, producer=?, type_id=?, age=?, breed=?, pet_id=?, photo_link=? WHERE id = ? ";
     private static final String UPDATE_PRODUCT_FOR_AMOUNT = "UPDATE products WHERE id = ? SET amount = amount-?";
     private static final String GET_PRODUCTS_FOR_SEARCH_REQUEST = "SELECT * FROM products WHERE name LIKE ? OR producer LIKE ? OR description LIKE ?";
+    private static final String GET_ALL_PRODUCTS = "SELECT * FROM products";
     private ProductDAO() {
 
     }
@@ -29,7 +31,28 @@ public class ProductDAO {
         return instance;
     }
 
-    public boolean insertProduct(Product prod) throws Exception{
+    public List<Product> getAllProducts (){
+        List<Product> allProducts = new ArrayList<>();
+        Connection connect = null;
+        Statement stat = null;
+        ResultSet rs = null;
+
+        try{
+            connect = DriverManager.getConnection(CONNECTION_URL);
+            stat = connect.createStatement();
+            rs = stat.executeQuery(GET_ALL_PRODUCTS);
+            while (rs.next()) {
+                allProducts.add(extractionProduct(rs));
+            }
+        } catch (Exception e) {
+            new Exception();
+        } finally {
+            close(connect);
+        }
+        return allProducts;
+    }
+
+    public boolean insertProduct(Product prod) {
         boolean res = false;
         Connection connect = null;
         PreparedStatement prep = null;
@@ -74,7 +97,7 @@ public class ProductDAO {
 
 
 
-    public Product getProductForId(int id) throws Exception {
+    public Product getProductForId(int id) {
         Product prod = null;
         Connection connect = null;
         PreparedStatement prep = null;
@@ -99,7 +122,7 @@ public class ProductDAO {
 
     }
 
-    public List<Product> getProductsForPetId(int petid) throws Exception{
+    public List<Product> getProductsForPetId(int petid) {
         List<Product> allProd = new ArrayList<>();
         Connection connect = null;
         PreparedStatement prep = null;
@@ -124,7 +147,7 @@ public class ProductDAO {
 
     }
 
-    public List<Product> getProductsForTypeAndPetId(int petid, int type) throws Exception{
+    public List<Product> getProductsForTypeAndPetId(int petid, int type) {
         List<Product> allProd = new ArrayList<>();
         Connection connect = null;
         PreparedStatement prep = null;
@@ -150,7 +173,7 @@ public class ProductDAO {
     }
 
     public boolean updateProduct( String name, String price, String description, String amount, String weight, String producer,
-                                  String type_id, String age, String breed, String pet_id, String photo_link, int id) throws Exception {
+                                  String type_id, String age, String breed, String pet_id, String photo_link, int id)  {
         boolean result = false;
         Connection connect = null;
         PreparedStatement prep = null;
@@ -187,7 +210,7 @@ public class ProductDAO {
 
     }
 
-    public boolean updateProductAmount(Product prod, int amount) throws Exception{
+    public boolean updateProductAmount(Product prod, int amount) {
         boolean result = false;
         Connection connect = null;
         PreparedStatement prep = null;
@@ -208,7 +231,7 @@ public class ProductDAO {
         return result;
     }
 
-    public List<Product> getProductsForSearchRequest(String requestString) throws Exception{
+    public List<Product> getProductsForSearchRequest(String requestString) {
         List<Product> allProd = new ArrayList<>();
         Connection connect = null;
         PreparedStatement prep = null;
@@ -259,7 +282,7 @@ public class ProductDAO {
 
 
 
-    private static void close(Connection con)throws Exception {
+    private static void close(Connection con){
         if (con == null) {
             return;
         }
