@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 <HTML>
 <HEAD>
-    <TITLE>Страница регистрации</TITLE>
+    <TITLE><fmt:message key="profile.title"/></TITLE>
     <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
     <META HTTP-EQUIV="CONTENT-LANGUAGE" CONTENT="uk-UK">
    	<LINK rel="stylesheet" href="styles.css">
@@ -24,18 +27,18 @@
 <div align="center">
     <form method="POST" action="Profile">
 
-        <h1>Вход в систему</h1>
+        <h1><fmt:message key="profile.title"/></h1>
         <br>
         <br>
         <p>
-            <label for="email"> Введите адресс электронной почты:</label>
+            <label for="email"> <fmt:message key="profile.email"/>:</label>
         </p>
         <br>
         <INPUT required ID="email" TYPE="email" NAME="email" SIZE="50" MAXLEN="50"/>
         <br>
         <br>
         <p>
-            <label for="pass">Введите пароль:</label>
+            <label for="pass"><fmt:message key="profile.pass"/>:</label>
         </p>
         <br>
 
@@ -46,13 +49,13 @@
         </c:if>
         <br>
 
-        <button type="submit" id="circular-button">Войти</button>
+        <button type="submit" id="circular-button"><fmt:message key="profile.button"/></button>
     </form>
     <br>
     <p>
-        Вы еще не с нами?! Тогда <a
+        <fmt:message key="profile.label1"/> <a
             href="Registration"><u><font
-            color=orange>зарегистрируйтесь</font></u></a> прямо сейчас!
+            color=orange><fmt:message key="profile.label2"/></font></u></a> <fmt:message key="profile.label3"/>!
     </p>
 </div>
 </BODY>

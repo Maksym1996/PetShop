@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 <html>
     <head>
         <title>Sweety Pet</title>

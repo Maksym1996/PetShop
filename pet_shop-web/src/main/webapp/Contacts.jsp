@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 <HTML>
 <HEAD>
-    <TITLE>Страница регистрации</TITLE>
+    <TITLE><fmt:message key="contacts.title"/></TITLE>
     <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
     <Meta charset="utf8">
     <META HTTP-EQUIV="CONTENT-LANGUAGE" CONTENT="uk-UK">
@@ -26,19 +29,19 @@
 <br>
 <br>
 <br>
-<h1 align="center">Наши Контакты</h1>
+<h1 align="center"><fmt:message key="contacts.title"/></h1>
 <div align="center">
     <br>
-    <p> Контактное лицо: студент КН-316в Кордонец Максим</p>
+    <p> <fmt:message key="contacts.label1"/></p>
     <br>
-    <p>Обращайтесь по телефону: +380969055386</p>
+    <p><fmt:message key="contacts.label2"/>: +380969055386</p>
     <br>
     <p>
-        или пишите на электронную почту: <a href="mailto:my@email">kordonetsmax@gmail.com</a>
+        <fmt:message key="contacts.label3"/>: <a href="mailto:my@email">kordonetsmax@gmail.com</a>
     </p>
     <br>
     <form action="MainPage">
-        <button id = "circular-button">На главную</button>
+        <button id = "circular-button"><fmt:message key="contacts.button"/></button>
         </form>
 </div>
     </body>

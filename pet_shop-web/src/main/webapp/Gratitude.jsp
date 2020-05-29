@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 
 <html>
     <head>
@@ -24,13 +26,13 @@
                              font-size: 50px;
                         }
                     </style>
-        <title>Измениение продукта</title>
+        <title><fmt:message key="gratitude.title"/></title>
     </head>
 	<body>
 
 		  <jsp:include page="header.jsp" />
 		  <h1 align="center">
-              Thank you for trusting us!!!</h1>
+              <fmt:message key="gratitude.label"/>!!!</h1>
           <br>
           <div align="center">
               <img
@@ -39,7 +41,7 @@
               <br>
               <form action = "/pet_shop-web/" >
                   <button type = "submit"  id = "circular-button">
-                      Go back to main page</button>
+                      <fmt:message key="gratitude.button"/></button>
               </form>
           </div>
           </BODY>

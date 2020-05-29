@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 
 <html>
     <head>
@@ -24,17 +26,17 @@
                              font-size: 50px;
                         }
                     </style>
-        <title>Измениение продукта</title>
+        <title><fmt:message key="404.title"/></title>
     </head>
 	<body>
 
 		  <jsp:include page="header.jsp" />
 
-		  <div align="center" ><p>Error 404!!!</p>
-              <p>Ресурс не найден. Выберите что-нибудь другое</p>
+		  <div align="center" ><p><fmt:message key="404.label1"/></p>
+              <p><fmt:message key="404.label2"/></p>
           </div>
           <form action = "/pet_shop-web/" >
-              <button type = "submit"  id = "circular-button">Вернуться на гланую</button>
+              <button type = "submit"  id = "circular-button"><fmt:message key="404.button"/></button>
           </form>
        
     </body>

@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=utf-8" import = "maksym.db.entity.UserRole" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 <html>
 <head>
 <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
@@ -10,18 +13,18 @@
 	CONTENT="Онлайн-магазин, товар, домашние, животные, собака, кот, кошка, рыба, кролик, попугай, хомяк, крыса, шиншила">
 <LINK rel="stylesheet" href="styles.css">
 <LINK rel="stylesheet" href="reset.css">
-<title>Каталог товаров</title>
+<title><fmt:message key="catalog.title"/></title>
 </head>
 <body>
 
 	<jsp:include page="header.jsp" />
 
 	<div align="center">
-		<font size+=10><b> Каталог товаров</b></font>
+		<font size+=10><b><fmt:message key="catalog.title"/></b></font>
 	</div>
 	          <c:if test = "${role == 1 and not empty role}">
     					<form action="AddProduct">
-    						<button type="submit" id="circular-button">Добавить товар</button>
+    						<button type="submit" id="circular-button"><fmt:message key="catalog.buttonAdd"/></button>
     					</form>
     		  </c:if>
 	<table>
@@ -45,13 +48,12 @@
 						<font size=+2 color=green> <c:out value="${prod.price}" />
 							UAH
 						</font>
-						<button type="submit" id="circular-button">Сведения о
-							товаре</button>
+						<button type="submit" id="circular-button"><fmt:message key="catalog.buttonAbout"/></button>
 					</form>
 					<c:if test = "${not empty role and role eq 1}">
 					    <form action="EditProduct" method="GET">
 						<input type="hidden" name="id" value=<c:out value = "${prod.id}"/>>
-						<button type="submit" id="circular-button">Изменить товар</button>
+						<button type="submit" id="circular-button"><fmt:message key="catalog.buttonEdit"/></button>
 					</form>
 					</c:if>
 

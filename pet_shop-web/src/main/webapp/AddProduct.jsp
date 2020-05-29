@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 <HTML>
 <HEAD>
-    <TITLE>Страница регистрации</TITLE>
+    <TITLE><fmt:message key="addProduct.title"/></TITLE>
     <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
     <META HTTP-EQUIV="CONTENT-LANGUAGE" CONTENT="uk-UK">
    	<LINK rel="stylesheet" href="styles.css">
@@ -27,16 +29,16 @@
 </HEAD>
 <BODY>
 <jsp:include page="header.jsp" />
- <h1 align = "center">Создание товара</h1>
+ <h1 align = "center"><fmt:message key="addProduct.main"/></h1>
     <div>
     <form action="AddProduct" method="post">
         <br>
             <c:if test="${not empty errors and errors.containsKey('prodOrigin')}" >
                      <p style="color: red" ><c:out value = "${errors.prodOrigin}" /></p>
             </c:if>
-        <p>
-            <label for="name">Наименование: </label>
-        </p>
+            <p>
+                                       <label for="name"><fmt:message key="addProduct.name"/>: </label>
+                                   </p>
         <br>
         <INPUT required  TYPE="text" NAME="name" id="name" pattern= "^[А-Яа-яЁё\sA-Za-z]+$" SIZE="30"/>
         <c:if test="${not empty errors and errors.containsKey('name')}">
@@ -45,7 +47,7 @@
         <br>
         <br>
         <p>
-            <label for="price">Цена: </label>
+            <label for="price"><fmt:message key="addProduct.price"/>: </label>
         </p>
         <br>
         <br>
@@ -59,7 +61,7 @@
         <br>
         <br>
         <p>
-            <label for="description">Описание: </label>
+            <label for="description"><fmt:message key="addProduct.description"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="text" NAME="description" id="description" SIZE="100"/>
@@ -69,7 +71,7 @@
         <br>
         <br>
         <p>
-            <label for="amount">Количество: </label>
+            <label for="amount"><fmt:message key="addProduct.amount"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="text" NAME="amount" id="amount" pattern="[0-9]+" SIZE="20"/>
@@ -82,7 +84,7 @@
         <br>
         <br>
         <p>
-            <label for="weight">Вес: </label>
+            <label for="weight"><fmt:message key="addProduct.weight"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="text" NAME="weight" id="weight" pattern="[0-9]+" SIZE="20"/>
@@ -95,7 +97,7 @@
         <br>
         <br>
         <p>
-            <label for="producer">Изготовитель: </label>
+            <label for="producer"><fmt:message key="addProduct.producer"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="text" NAME="producer" id="producer" pattern= "^[А-Яа-яЁё\sA-Za-z]+$" SIZE="20"/>
@@ -105,7 +107,7 @@
         <br>
         <br>
         <p>
-            <label for="type_id">Категория товара: </label>
+            <label for="type_id"><fmt:message key="addProduct.category"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="text" NAME="type_id" id="type_id" pattern = "[0-4]" SIZE="20"/>
@@ -118,7 +120,7 @@
         <br>
         <br>
         <p>
-            <label for="age">Для какого возраста: </label>
+            <label for="age"><fmt:message key="addProduct.age"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="text" NAME="age" id="age" pattern= "^[А-Яа-яЁё\sA-Za-z]+$" SIZE="20"/>
@@ -128,7 +130,7 @@
         <br>
         <br>
         <p>
-            <label for="breed">Порода питомца: </label>
+            <label for="breed"><fmt:message key="addProduct.breed"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="text" NAME="breed" id="breed" pattern= "^[А-Яа-яЁёЇїЄєІі\sA-Za-z]+$" SIZE="20"/>
@@ -138,7 +140,7 @@
         <br>
         <br>
         <p>
-            <label for="pet_id">Для какого домашнего животного: </label>
+            <label for="pet_id"><fmt:message key="addProduct.type"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="text" NAME="pet_id" id="pet_id"  pattern = "[0-4]" SIZE="20"/>
@@ -151,7 +153,7 @@
         <br>
         <br>
         <p>
-            <label for="photo_link">Ссылка на картинку: </label>
+            <label for="photo_link"><fmt:message key="addProduct.link"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="text" NAME="photo_link" id="photo_link" SIZE="50"/>
@@ -161,7 +163,7 @@
         <br>
 
         <br>
-        <button type = "submit"  id = "circular-button">Добавить новый товар</button>
+        <button type = "submit"  id = "circular-button"><fmt:message key="addProduct.button"/></button>
     </form>
     </div>
     <br>

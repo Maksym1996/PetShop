@@ -9,6 +9,7 @@ div{
 
 }
 
+
 /*Start link style*/
 a { 
     text-decoration: none; 
@@ -41,6 +42,10 @@ a:hover {
 	width: 100%;
 	
 }
+
+#lang-flag{
+    float:left;
+}
 #left-head{
 	float: left;
 	font-size:16px;
@@ -48,11 +53,11 @@ a:hover {
 	width: 200px;
 	margin-left:20px;
 	margin-top: 10px;
-	
+
 }
 #right-head{
 	float:right;
-	font-size:22px;
+	font-size:20px;
 	width: 410px;
 	margin-top: 10px;
 }

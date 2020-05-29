@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 <html>
     <head>
        <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
@@ -14,13 +17,13 @@
               	    }
 
               	</style>
-        <title>Моя корзина</title>
+        <title><fmt:message key="basket.title"/></title>
     </head>
     <body>
     
        <jsp:include page="header.jsp" />
        
-       <div align="center"><b>Выбранный вами товар:</b></div>
+       <div align="center"><b><fmt:message key="basket.main"/>:</b></div>
        <table>
         <c:forEach var="prod" items="${basket.products}">
             <tr>
@@ -29,11 +32,11 @@
                         <figure class="sign">
                         <img src=<c:out value="${prod.photo_link}"/> height="150" width="150"> </figure>
                         <br>
-                        <p> <c:out value="${prod.name}"/> , <c:out value="${prod.weight}"/> гр.</p>
-                        <p> <font size=+2 color=green>  <c:out value="${prod.price}"/> ГРН</font></p>
+                        <p> <c:out value="${prod.name}"/> , <c:out value="${prod.weight}"/><fmt:message key="gram"/>.</p>
+                        <p> <font size=+2 color=green>  <c:out value="${prod.price}"/> <fmt:message key="uah"/></font></p>
                         <form action="basket" method = "GET" >
                         	<input type = "hidden" name = "id" id = "id" value = <c:out value = "${prod.id}"/> />
-                            <button type="submit" id = "circular-button">Удалить из корзины</button>
+                            <button type="submit" id = "circular-button"><fmt:message key="basket.delete"/></button>
                         </form>
                     </td>
 
@@ -42,7 +45,7 @@
                         <form action = "BuyOneProduct">
                           <input type = "hidden" name = "id" id = "id" value = <c:out value = "${prod.id}"/> />
                           <input type="number" step="1" min="1" max="30" id="num_count" name="quantity" value="1" title="Qty">
-                          <button type="submit" id= "circular-button">Заказать</button>
+                          <button type="submit" id= "circular-button"><fmt:message key="basket.order"/></button>
                           </form>
                         </div>
 
@@ -54,7 +57,7 @@
        <br><br><br><br><br>
         <form  action="SuccessBuy">
         <div align="center">
-            <button type="submit" id= "circular-button">ЗАКАЗАТЬ ВСЁ</button>
+            <button type="submit" id= "circular-button"><fmt:message key="basket.orderAll"/></button>
         </div>
 
     </body>

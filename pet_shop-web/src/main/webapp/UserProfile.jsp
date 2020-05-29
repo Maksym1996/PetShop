@@ -1,8 +1,9 @@
-
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,39 +28,39 @@
                       }
 
 	</style>
-	<title>Мой профиль</title>
+	<title><fmt:message key="userProfile.title"/></title>
 </head>
 <body>
 	 <jsp:include page="header.jsp" />
-	 <h1>Мои данные</h1>
+	 <h1><fmt:message key="userProfile.title"/></h1>
 	 <br>
 
 	 <div id="left-head">
 
-	 	<p>Имя</p>
+	 	<p><fmt:message key="userProfile.name"/></p>
 	 	<br>
 	 	<p style="color:#000080"><c:out value="${user.name}"/></p>
 	 	<br>
-	 	<p>Фамилия</p>
+	 	<p><fmt:message key="userProfile.surname"/></p>
 	 	<br>
 	 	<p style="color:#000080"><c:out value="${user.surname}"/></p>
 	 	<br>
-	 	<p>Телефон</p>
+	 	<p><fmt:message key="userProfile.phone"/></p>
 	 	<br>
 	 	<p style="color:#000080"><c:out value="${user.phone}"/></p>
 	 	<br>
-	 	<p>Электронная почта</p>
+	 	<p><fmt:message key="userProfile.email"/></p>
 	 	<br>
 	 	<p style="color:#000080"><c:out value="${user.email}"/></p>
 	 	<br>
 	 	<br>
 	 	<form action = "/pet_shop-web/">
-	 		<button type = "submit" id = "circular-button">На главную</button>
+	 		<button type = "submit" id = "circular-button"><fmt:message key="userProfile.button"/></button>
 	 	</form>
 
          <form action = "Profile">
 	            <input type="hidden" name="logout" id = "logout" value = "logout" />
-     	 		<button type = "submit" id = "circular-button">Выйти из учетной записи</button>
+     	 		<button type = "submit" id = "circular-button"><fmt:message key="userProfile.escapeButton"/></button>
          </form>
      </div>
 

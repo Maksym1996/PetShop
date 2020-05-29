@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${lang}" />
+<fmt:setBundle basename="Bundles" />
 <HTML>
 <HEAD>
-    <TITLE>Страница регистрации</TITLE>
+    <TITLE><fmt:message key="registration.title"/></TITLE>
     <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
     <META HTTP-EQUIV="CONTENT-LANGUAGE" CONTENT="uk-UK">
    	<LINK rel="stylesheet" href="styles.css">
@@ -23,14 +26,14 @@
 
 
 
-<h1 align ="center">Регистрация</h1>
+<h1 align ="center"><fmt:message key="registration.main"/></h1>
 <br>
 <br>
 <div>
-    <h3>Заполните поля</h3>
+    <h3><fmt:message key="registration.label"/></h3>
     <br>
     <form action="Registration" method="POST">
-        <p>Имя</p>
+        <p><fmt:message key="registration.name"/></p>
         <br>
         <INPUT required TYPE="TEXT" NAME="name" SIZE="20" MAXLEN="20"/>
         <c:if test="${not empty errors and errors.containsKey('name')}">
@@ -38,7 +41,7 @@
         </c:if>
         <br>
         <br>
-        <p>Фамилия</p>
+        <p><fmt:message key="registration.surname"/></p>
         <br>
         <INPUT required TYPE="TEXT" NAME="surname" SIZE="20" MAXLEN="20"/>
         <c:if test="${not empty errors and errors.containsKey('sur')}">
@@ -46,7 +49,7 @@
         </c:if>
         <br>
         <br>
-        <p>Контактный телефон</p>
+        <p><fmt:message key="registration.phone"/></p>
         <br>
         <INPUT required TYPE="tel" NAME="mobile" placeholder="(XXX)-XXX-XXXX" pattern="[0-9]{10}" SIZE="20" MAXLEN="20"/>
 <c:if test="${not empty errors and errors.containsKey('phone')}">
@@ -60,7 +63,7 @@
          </c:if>
         <br>
         <br>
-        <p>Электронная почта</p>
+        <p><fmt:message key="registration.email"/></p>
         <br>
         <INPUT required TYPE="email" NAME="email" placeholder="user@gmail.com"
             pattern="^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$"
@@ -77,7 +80,7 @@
         <br>
         <br>
         <p>
-            <label for="password">Пароль: </label>
+            <label for="password"><fmt:message key="registration.pass"/>: </label>
         </p>
         <br>
         <INPUT required TYPE="PASSWORD" NAME="pass" id="password" SIZE="20"
@@ -87,7 +90,7 @@
          </c:if>
         <br>
         <br>
-        <button type="submit" id="circular-button">Зарегистрироваться</button>
+        <button type="submit" id="circular-button"><fmt:message key="registration.button"/></button>
     </form>
 </div>
 
